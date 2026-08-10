@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
 <title>CIO Test Prep — CT099-3-M</title>
 <style>
 /* ============ tokens ============ */
@@ -23,30 +24,30 @@
 }
 @media (prefers-color-scheme:dark){
   :root{
-    --bg:#151913; --panel:#1C221B; --panel2:#181D17;
-    --ink:#E7EBE3; --ink-soft:#C4CDBF; --muted:#98A492;
-    --line:#2B332A; --line-soft:#242B23;
-    --accent:#83BC96; --accent-ink:#A5D2B4; --accent-soft:#22301F; --accent-line:#3A4F39;
-    --gene:#D3A268; --gene-soft:#2C2418; --gene-ink:#D3A268;
-    --bad:#D98A72; --bad-soft:#332019;
+    --bg:#17181A; --panel:#1E2023; --panel2:#1A1C1E;
+    --ink:#E9EAEB; --ink-soft:#C6C9CC; --muted:#9CA1A7;
+    --line:#2E3134; --line-soft:#27292C;
+    --accent:#85BB9E; --accent-ink:#A9D3BC; --accent-soft:#212928; --accent-line:#3A4744;
+    --gene:#D3A268; --gene-soft:#2B2419; --gene-ink:#D3A268;
+    --bad:#D98A72; --bad-soft:#33231D;
     --shadow-sm:0 1px 2px rgba(0,0,0,.35);
     --shadow-md:0 1px 2px rgba(0,0,0,.35),0 12px 28px -14px rgba(0,0,0,.5);
   }
-  .btn{color:#0F160E}
-  .q .opt.sel-right::before,.q .opt.sel-wrong::before{color:#0F160E}
+  .btn{color:#0F1211}
+  .q .opt.sel-right::before,.q .opt.sel-wrong::before{color:#0F1211}
 }
 :root[data-theme="dark"]{
-  --bg:#151913; --panel:#1C221B; --panel2:#181D17;
-  --ink:#E7EBE3; --ink-soft:#C4CDBF; --muted:#98A492;
-  --line:#2B332A; --line-soft:#242B23;
-  --accent:#83BC96; --accent-ink:#A5D2B4; --accent-soft:#22301F; --accent-line:#3A4F39;
-  --gene:#D3A268; --gene-soft:#2C2418; --gene-ink:#D3A268;
-  --bad:#D98A72; --bad-soft:#332019;
+  --bg:#17181A; --panel:#1E2023; --panel2:#1A1C1E;
+  --ink:#E9EAEB; --ink-soft:#C6C9CC; --muted:#9CA1A7;
+  --line:#2E3134; --line-soft:#27292C;
+  --accent:#85BB9E; --accent-ink:#A9D3BC; --accent-soft:#212928; --accent-line:#3A4744;
+  --gene:#D3A268; --gene-soft:#2B2419; --gene-ink:#D3A268;
+  --bad:#D98A72; --bad-soft:#33231D;
   --shadow-sm:0 1px 2px rgba(0,0,0,.35);
   --shadow-md:0 1px 2px rgba(0,0,0,.35),0 12px 28px -14px rgba(0,0,0,.5);
 }
-:root[data-theme="dark"] .btn{color:#0F160E}
-:root[data-theme="dark"] .q .opt.sel-right::before,:root[data-theme="dark"] .q .opt.sel-wrong::before{color:#0F160E}
+:root[data-theme="dark"] .btn{color:#0F1211}
+:root[data-theme="dark"] .q .opt.sel-right::before,:root[data-theme="dark"] .q .opt.sel-wrong::before{color:#0F1211}
 :root[data-theme="light"]{
   --bg:#F6F8F3; --panel:#FFFFFF; --panel2:#F0F3EC;
   --ink:#20291F; --ink-soft:#3C4A3C; --muted:#566253;
@@ -327,7 +328,7 @@ try{var _t=JSON.parse(localStorage.getItem("cio_theme"));if(_t==="dark"||_t==="l
 
   <div class="hero-status">
     <p class="countline"><span class="lbl">Test in</span> <b id="bigcount">—</b></p>
-    <p class="metaline">Fri 14 Aug · 8:30 AM · closed book · 2 h · 40 marks</p>
+    <p class="metaline">Fri 14 Aug · 2:30 PM · closed book · 2 h · 40 marks</p>
     <div class="progress"><i id="progbar" style="width:0%"></i></div>
     <div class="line"><span id="progtext">0 of 16 sections done</span><span id="quizavg"></span></div>
   </div>
@@ -367,16 +368,7 @@ try{var _t=JSON.parse(localStorage.getItem("cio_theme"));if(_t==="dark"||_t==="l
     </div>
   </div>
 
-  <details><summary>Suggested plan for the remaining days</summary><div class="body">
-  <div class="tablewrap"><table>
-    <tr><th>Day</th><th>Do</th></tr>
-    <tr><td>Today</td><td>Lessons 1–8 + the Port Walkthrough. Do every checkpoint quiz.</td></tr>
-    <tr><td>Next day</td><td>Lessons 9–12, then <b>Mock Exam #1</b> (2601 FT paper, timed 2 h). Self-mark.</td></tr>
-    <tr><td>Then</td><td>Review weak checkpoints, full Quiz Bank run, flashcards to 100%. <b>Mock Exam #2</b> (PT-ODL paper).</td></tr>
-    <tr><td>Thursday</td><td>Cram Sheet only. Flashcards once. Sleep.</td></tr>
-    <tr><td>Friday</td><td>Arrive 8:15. You've done this several times already.</td></tr>
-  </table></div>
-  </div></details>
+  <details><summary>Suggested plan for the remaining days <span class="pill" style="margin-left:6px">adapts daily</span></summary><div class="body" id="planBody"></div></details>
 </section>
 
 <!-- ============================ THE TEST DECODED ============================ -->
@@ -387,12 +379,13 @@ try{var _t=JSON.parse(localStorage.getItem("cio_theme"));if(_t==="dark"||_t==="l
 
   <h2>Logistics</h2>
   <ul>
-    <li><b>Friday 14 August 2026 · 8:30 AM</b>, exam hall — arrive by 8:15 for settling and reading time. <b>2 hours of writing.</b></li>
+    <li><b>Friday 14 August 2026 · 2:30 PM</b>, exam hall booked 2:30–5:00 — he tends to start ~15 minutes after the official time so latecomers make it, which means <b>arriving at 2:30 sharp buys you free reading time</b>. <b>2 hours of writing</b>, done by ~4:45.</li>
     <li><b>Closed book.</b> No notes; the paper itself bans non-sanctioned tools (“ChatGPT, phone, etc”) under the university's assessment policy.</li>
     <li><b>Handwritten prose + diagrams. No coding.</b> His words: “the test is not coding.”</li>
     <li><b>40 marks, worth 40% of the module</b> (weighting as discussed in class — confirm in the module guide). The lecturer's framing: assignment marks run high, so “the test is the one that basically determines your overall.”</li>
     <li style="color:var(--muted);font-size:14px">Logistics come from class recordings and may have shifted — always trust the latest official announcement over this page.</li>
   </ul>
+  <div class="callout prof"><span class="who">His own announcement, on tape</span><p>“Friday, next Friday, 14th… I have it booked for 2:30 to 5 o'clock.”</p></div>
 
   <h2>The paper's fixed anatomy</h2>
   <p>Cover page → a 1–2 page <b>scenario</b> (always a scheduling / allocation problem) → a “please consider” bullet list (free hints!) → three questions:</p>
@@ -1061,7 +1054,7 @@ try{var _t=JSON.parse(localStorage.getItem("cio_theme"));if(_t==="dark"||_t==="l
 
   <h2>Real paper 1 — April 2026 (Full-time) · “Clustered Exam Scheduling”</h2>
   <div class="card">
-    <p><b>Scenario (abridged; full paper in your <span class="mono">05_Past_Class_Tests</span> folder):</b> APU has moved exams to a “Clustered Resource Model” across three sites — Meranti, TPM Main, Satellite South — for a 14-day exam period. You are the AI consultant designing the scheduling system.</p>
+    <p><b>Scenario (abridged; the full paper circulates in the class group — ask if you don't have it):</b> APU has moved exams to a “Clustered Resource Model” across three sites — Meranti, TPM Main, Satellite South — for a 14-day exam period. You are the AI consultant designing the scheduling system.</p>
     <ul style="font-size:14.5px">
       <li><b>Written vs lab-based exams</b>; labs split into advanced-workstation vs GPU-enabled needs. Satellite South is cheapest (RM2,500/session) but has <b>zero GPU labs</b>; TPM Main is fully equipped at RM10,000/session — <b>“variable activation”: opening a building for a session costs a flat fee.</b></li>
       <li><b>Chain modules:</b> theory (written) + practical (lab) pairs needing a <b>minimum 48-hour gap</b>, both within the 14 days.</li>
@@ -1188,7 +1181,7 @@ try{var _t=JSON.parse(localStorage.getItem("cio_theme"));if(_t==="dark"||_t==="l
   <p><button class="btn ghost small" onclick="window.print()">🖨 Print this sheet — one clean page, no chrome</button></p>
 
   <h2>Test contract</h2>
-  <p class="mono" style="font-size:14px">Fri 14 Aug · 8:30 AM · exam hall · 2 h · closed book · 40 marks · Q1 15 / Q2 15 / Q3 10<br>Time: 15 read+assume → 40 Q1 → 40 Q2 → 20 Q3 → 5 check</p>
+  <p class="mono" style="font-size:14px">Fri 14 Aug · 2:30 PM (hall 2:30–5:00) · 2 h · closed book · 40 marks · Q1 15 / Q2 15 / Q3 10<br>Time: 15 read+assume → 40 Q1 → 40 Q2 → 20 Q3 → 5 check</p>
 
   <h2>Pipeline: D · E · D · F · O</h2>
   <p><b>D</b>ecisions → <b>E</b>ncoding → <b>D</b>ecoder → <b>F</b>itness → <b>O</b>thers (alternative algorithm)</p>
@@ -1236,7 +1229,7 @@ try{var _t=JSON.parse(localStorage.getItem("cio_theme"));if(_t==="dark"||_t==="l
 <script>
 "use strict";
 /* ============================ DATA ============================ */
-const TEST_DATE = new Date(2026, 7, 14, 8, 30, 0); // Fri 14 Aug 2026 8:30 AM local
+const TEST_DATE = new Date(2026, 7, 14, 14, 30, 0); // Fri 14 Aug 2026 2:30 PM local (user-confirmed; matches the recording "booked for 2:30 to 5")
 
 const TOPICS = {l1:"L1 What is CIO",l2:"L2 Problems",l3:"L3 GA vocab",l4:"L4 Encoding I",l5:"L5 Encoding II",l6:"L6 GA engine",l7:"L7 Constraints",l8:"L8 Fitness",l9:"L9 Pareto",l10:"L10 PSO",l11:"L11 ACO",l12:"L12 Exam method"};
 
@@ -1325,7 +1318,7 @@ const QUIZ = [
 ];
 
 const CARDS = [
-{c:"Test contract",f:"When, where, how long, how many marks?",b:"Fri 14 Aug 2026 · 8:30 AM · exam hall · 2 h writing · closed book · 40 marks = Q1 15 + Q2 15 + Q3 10 · 40% of module."},
+{c:"Test contract",f:"When, where, how long, how many marks?",b:"Fri 14 Aug 2026 · 2:30 PM (hall booked 2:30–5:00) · 2 h writing · closed book · 40 marks = Q1 15 + Q2 15 + Q3 10 · 40% of module."},
 {c:"Test contract",f:"The three questions (they never change)",b:"Q1 design the chromosome (encoding/decoding). Q2 fitness + validity in detail. Q3 outline an alternative CI algorithm vs the GA."},
 {c:"Test contract",f:"Time plan for the 2 hours",b:"15 read + assumptions → 40 Q1 → 40 Q2 → 20 Q3 → 5 final check ('does every decision appear in my chromosome?')."},
 {c:"Problems",f:"Three ingredients of any optimisation problem",b:"Decision variables (what you choose) · objective(s) (how a choice is scored) · constraints (what must hold)."},
@@ -1397,22 +1390,88 @@ const WALK = [
 
 /* ============================ MODEL ANSWERS ============================ */
 const MA = {
-ma2601ft:`<p><b>Assumptions:</b> sessions are fixed morning/afternoon blocks; commute only matters for students with two same-day exams at different sites; invigilator travel handled like students'; hall capacities known; 14 days × 2 sessions = 28 session-slots.</p>
-<p><b>Q1 — Decisions:</b> ① exam → (day, session, site, hall(s)) ② building activation per site-session (derivable: a building is active iff ≥1 exam is placed there — SAY this explicitly, the paper demands activation be represented) ③ invigilator team per exam. <b>Encoding (Pattern 1):</b> integer genes per exam: day-session index (1–28) + hall index restricted to <b>compatible</b> halls only (GPU-lab exams: alphabet excludes Satellite South entirely); optional permutation segment for a greedy placer. Decoder phase 1: place exams → derive activation set and per-hall usage at 90% capacity (10% buffer), splitting oversize exams across same-site halls; phase 2: assign invigilator teams (senior first for high-priority/technical labs, juniors only paired with seniors). <b>Operators (the paper's own bullet):</b> uniform or 1-point crossover on the integer segment + legal-value-reset mutation — both keep offspring legal because the restricted alphabets survive them; OX + swap on the permutation segment if used; never let one operator run across both segments. <b>Data:</b> exam (ID, type, size, priority, chain-partner, window), hall (site, capacity, tech tier), invigilator (role, base site), matrices (exam×hall compatibility, site×site travel with 12:00–2:00 penalty), policy (fees 2500/10000, 48-h chain gap, 35% workload band, buffer 10%).</p>
-<p><b>Q2 — Validity:</b> hall compatibility · usable capacity = 0.9×cap · chain gap ≥48 h within window · high-priority within days 1–5 · ≤2 exams/student/day (overlap sets) · transfer feasibility: break ≥ travel(+45 if 12:00–2:00) · junior-senior pairing · senior present for priority/lab sessions · workload within ±35% of mean. <b>Tools:</b> compatibility → encoding; capacity+splitting, pairing → decoder; chain gap & congestion → penalty by degree (or decoder ordering); transfer-infeasible → hard penalty (physically impossible). <b>Components:</b> f₁ activation cost = Σ active site-sessions × fee [RM] — THE cost driver; f₂ priority lateness (weighted day index) [w-days]; f₃ congestion = Σ max(0, examsPerStudentDay−2); f₄ transfer exposure = Σ studentTransfers × (15 + 45·peak(slot)) [min] — slot-dependent, computed per assignment; f₅ invigilator imbalance = max deviation from mean [%]; f₆ makespan/compactness if desired. Normalise (activation max = all 3 sites × 28 sessions), weight with cost emphasized per the Finance mandate — cite it; note the <b>cost–capacity trade-off</b>: cheap South lacks GPU labs and senior capacity, so activation savings fight compatibility and pairing — a genuine conflict (critical awareness). Alternative: NSGA-II front over (cost, student welfare, fairness).</p>
-<p><b>Q3:</b> ACO fits well — construction never opens an illegal hall (compatibility/capacity respected per step), pheromone on (exam → session-hall) pairs; fitness unchanged, also drives deposit; params α β ρ. <b>The paper's bespoke ask — “encourage building clustering while discouraging peak-window travel”:</b> build both pressures into the ant's heuristic η: boost halls in <em>already-active</em> site-sessions (clustering ⇒ fewer activation fees) and set η ≈ 0 for any choice that forces a 12:00–2:00 transfer on a student or invigilator; since the deposit is driven by the full fitness (f₁ activation + f₄ transfer exposure), good clustering trails get reinforced every iteration. Judgement: prefer ACO because this scenario is compatibility-dense and both named goals map naturally onto η.</p>`,
-ma2601pt:`<p><b>Assumptions:</b> 10 exam days × 2 sessions = 20 session-slots; splitting an exam across halls requires same site + same session; invigilator travel consumes break time (travel ≠ rest); student-overlap sets given as data.</p>
-<p><b>Q1 — Decisions:</b> exam → (day 1–10, session M/A, hall-set); invigilator team per exam-hall. <b>Encoding (Pattern 1):</b> one integer gene per exam = session-slot index 1–20, with the <b>alphabet restricted to that exam's permitted day-window</b> (window “days 2–4” ⇒ legal values {3…8} only — violations unwritable); optional permutation segment = placement priority for the greedy hall assigner. Worked example: <span class="mono">E7 → 13</span> = day 7, morning; the decoder then seats E7's 240 students best-fit, splitting across two halls at the same site if none fits alone. <b>Decoder:</b> phase 1 — place exams in permutation order, assigning halls best-fit while honouring capacity, the 30-min reset, ≤3 sessions/hall/day, and split-only-within-site+session; phase 2 — assign invigilators (senior where mandated, 6-h daily cap, 30-min rest after 3 h, one site per day — travel time is not rest). <b>Operators:</b> 1-point/uniform crossover + window-respecting reset mutation (both preserve legality). <b>Data (grouped):</b> exam (duration, intake, level, priority, day-window, overlap set) · hall (site, capacity, reset needs) · invigilator (role, base site, availability) · policy (session times, ≤2/day target, 15-min inter-site travel). <b>Justified</b> vs a two-gene (session + hall) design: longer, and the hall half is decoder-derivable anyway.</p>
-<p><b>Q2 — Validity (numbered):</b> ① day-window respected ② no student clash within a session (overlap sets) ③ hall capacity with the splitting rule ④ 30-min reset honoured ⑤ ≤3 sessions/hall/day ⑥ split only same site+session ⑦ invigilator 6-h cap, rest after 3 h, single-site mobility ⑧ senior present where mandated. <b>Tools:</b> window → encoding alphabet; capacity/reset/splitting/hall-cap → decoder; student clashes → penalty by count. The paper lists “≤2 exams per student per day” under its <em>aims</em> — classify it as soft-with-penalty and say you are doing so deliberately (Q2 explicitly asks for the hard/soft split). <b>Components (formula · unit · purpose):</b> f₁ priority earliness = Σ w<sub>priority</sub> × day [w-days]; f₂ congestion = Σ max(0, examsPerStudentDay − 2) [violations]; f₃ invigilator idle = Σ(on-site hrs − invigilating hrs) [hrs] — the paper names it; f₄ afternoon pressure = afternoon sessions + extra for consecutive-day afternoons [count] — also named; f₅ invigilator fairness = std-dev of weekly hours; f₆ compactness (last exam day). <b>Fairness &amp; priority (the paper's own bullet):</b> fairness enters twice — f₅ spreads staff load, priority weights (e.g. 3/1) front-load important exams; state the weights and that they are policy. Normalise f′=(f−min)/(max−min) with each range justified (idle max = all invigilators on-site all 10 days doing nothing), weights sum to 1, lower better — or hand the board an NSGA-II front over (student welfare, staff fairness, compactness). Conflict to name: suppressing afternoons squeezes exams into mornings and raises congestion — a real trade-off; weights are policy.</p>
-<p><b>Q3:</b> PSO with random keys — session key banded over the exam's LEGAL window only (compatibility survives), order key = placement priority (SPV); decoder and fitness carry over unchanged; no operators to design; params ω, c₁, c₂, swarm size; judgement: least implementation effort, because the decoder already guarantees hall/invigilator feasibility.</p>`,
-maHosp:`<p><b>Assumptions:</b> 1 surgery = 1 block incl. sterilisation; 15 blocks/theatre-week (5×3); anaesthetists interchangeable; elective waiting days known.</p>
-<p><b>Q1 — Decisions:</b> surgery → (theatre, day, block); anaesthetist per theatre-block (derivable by decoder from the pool); evening activation per theatre-day (derivable: active iff an evening surgery is placed — state it!). <b>Encoding:</b> Pattern 1 — one integer gene per surgery = theatre-block slot index (1–60), with <b>legal values restricted</b>: cardiac ∈ T1/T2 slots only, neuro ∈ T4 slots only; plus a permutation segment ordering surgeries for the greedy placer when slots collide. Worked example: <span class="mono">S7(cardiac)→slot 4 (T1 Tue-AM)</span>. <b>Decoder:</b> phase 1 place surgeries by permutation order into their gene slots, bumping collisions to the surgeon's next legal slot (repair-in-decoder); enforce surgeon ≤2 blocks/day &amp; one-theatre-per-block while placing; phase 2 assign anaesthetists left-to-right keeping ≥2 free per day. <b>Data:</b> surgery (ID, specialty, priority, surgeon, listing date), theatre (equipment, cost tier), surgeon availability, anaesthetist pool, policy (RM3000 evening fee, 45-min turnaround, cover rule). <b>Justify</b> vs block-per-theatre chromosome (grouping alternative).</p>
-<p><b>Q2 — Validity (numbered):</b> ① specialty–theatre compatibility ② one surgery per theatre-block ③ surgeon ≤2 blocks/day ④ surgeon not double-booked in a block ⑤ emergencies within days 1–2 ⑥ no anaesthetist double-booked (≤1 theatre-block at any time) ⑦ ≥2 anaesthetists free per day. <b>Tools:</b> ①③④ encoding/decoder; ② decoder; ⑤ penalty by days-late × emergency weight (or hard — argue either, consistently); ⑥⑦ decoder with validity check. <b>Components:</b> f₁ elective waiting = Σ(scheduled day − listing day) [days]; f₂ priority-weighted earliness w=5/3/1; f₃ evening fees = Σ activated evening theatre-days × 3000 [RM]; f₄ surgeon balance = std-dev of weekly blocks; f₅ theatre running cost via tier matrix [RM]; f₆ makespan (last elective's day) — include the story: without f₆ two schedules with equal waiting can hide a congested Friday. Normalise (f₃ max = 20 evening activations × 3000), weights sum 1; conflict to name: evening fees vs waiting (banning evenings delays electives) — weights are policy; Pareto alternative for the hospital board.</p>
-<p><b>Q3 (ACO version):</b> ants place surgeries one at a time (emergency first), choosing among currently legal theatre-blocks with P ∝ τ·η (η = 1/(waiting created)); compatibility/limits never offered illegally; fitness unchanged, drives deposit; α β ρ, ~30 ants; prefer ACO here because the compatibility + surgeon-limit web is dense.</p>`,
-maDrone:`<p><b>Assumptions:</b> flight time = 6 min/km return incl. service; pad slot = launch only; batteries charged at start; jobs known at 08:00 (static).</p>
-<p><b>Q1 — Decisions:</b> job → drone; delivery order per drone; launch slot (derivable by decoder from order + pad exclusivity + recharge rule). <b>Encoding:</b> Pattern 2 shines — a <b>block chromosome</b>: job IDs cut by 5 separators = 6 drone routes; block membership = assignment, position = order. Heavy jobs' blocks restricted to the two heavy-lift drones (repair swaps a &gt;5 kg job out of a standard drone's block). Alternative (justification partner): integer drone-vector + permutation. <b>Decoder:</b> phase 1 read blocks → per drone, sequence jobs, inserting 20-min recharge after every 2 jobs; phase 2 serialise launches onto the single pad in 5-min slots, delaying later drones; compute per-job dispatch ≥ earliest-dispatch. <b>Data:</b> job (weight, distance, tier, earliest), drone (capacity class, energy multiplier), policy (recharge rule, pad slotting, promise 10:00, wind rule 8 km/11:00, RM25 voucher).</p>
-<p><b>Q2:</b> validity: capacity class · recharge inserted · pad exclusivity · earliest-dispatch · <b>wind rule (hard):</b> no &gt;8 km flight departing after 11:00 · every job flown. The voucher question: lateness on premium promises is <b>soft with a literal price</b> — the company monetised it, so it belongs in fitness (f₃ = 25 × missed promises [RM]), NOT validity; say why (a promise is breakable at cost; physics isn't). <b>Components:</b> f₁ total lateness [min]; f₂ energy = Σ km × rate × multiplier [RM]; f₃ vouchers [RM]; f₄ balance = std-dev jobs/drone; f₅ makespan (window fits). Normalise; note the conflict: energy loves heavy-lift-avoidance, balance loves spreading — weights are policy; NSGA-II alternative gives dispatch a menu.</p>
-<p><b>Q3 (PSO version):</b> two keys per job — assignment key banded over LEGAL drones only (heavy jobs: bands span the 2 heavy-lifters), order key sorted per drone (SPV); decoder + fitness unchanged; no operators to design; ω c₁ c₂ + swarm size; prefer PSO for implementation speed since the decoder already guarantees feasibility.</p>`
+ma2601ft:`<h3 style="margin-top:6px">Assumptions</h3>
+<ul style="font-size:14.5px"><li>Sessions are fixed morning/afternoon blocks — 14 days × 2 sessions = 28 session-slots.</li><li>Commute only matters when a student (or invigilator) has two same-day exams at different sites.</li><li>Hall capacities known; invigilator travel handled like students'.</li></ul>
+<h3>Q1 — Chromosome &amp; decoding <span class="marks">15</span></h3>
+<p style="font-size:14.5px"><b>The three decisions that must live in the chromosome:</b></p>
+<ol style="font-size:14.5px"><li>Exam → (day, session, site, hall(s))</li><li>Building activation per site-session — <i>derivable</i>: a building is active iff ≥1 exam is placed there. Say this explicitly; the paper demands activation be represented.</li><li>Invigilator team per exam.</li></ol>
+<p style="font-size:14.5px"><b>Encoding (Pattern 1):</b> one integer gene per exam = day-session index (1–28), plus a hall gene restricted to <b>compatible</b> halls only — GPU-lab exams' alphabet excludes Satellite South entirely. Optional permutation segment orders exams for the greedy placer.</p>
+<p style="font-size:14.5px"><b>Decoder, two phases:</b></p>
+<ol style="font-size:14.5px"><li>Place exams → derive the activation set and per-hall usage at 90% capacity (10% buffer), splitting oversize exams across same-site halls.</li><li>Assign invigilator teams — senior first for high-priority/technical labs; juniors only ever paired with seniors.</li></ol>
+<p style="font-size:14.5px"><b>Operators (the paper's own bullet):</b> uniform or 1-point crossover on the integer segment + legal-value-reset mutation — both keep offspring legal because the restricted alphabets survive them. OX + swap on the permutation segment if used. Never let one operator run across both segments.</p>
+<p style="font-size:14.5px"><b>Data, grouped:</b></p>
+<ul style="font-size:14.5px"><li><b>Exam:</b> ID, type (written / lab tier), size, priority, chain-partner, window</li><li><b>Hall:</b> site, capacity, tech tier</li><li><b>Invigilator:</b> role, base site</li><li><b>Matrices:</b> exam×hall compatibility · site×site travel with the 12:00–2:00 penalty</li><li><b>Policy:</b> fees RM2,500 / RM10,000 · 48-h chain gap · ±35% workload band · 10% buffer</li></ul>
+<h3>Q2 — Validity &amp; fitness <span class="marks">15</span></h3>
+<p style="font-size:14.5px"><b>Validity — nine numbered checks:</b></p>
+<ol style="font-size:14.5px"><li>Hall compatibility (tech tier)</li><li>Usable capacity = 0.9 × capacity</li><li>Chain gap ≥ 48 h, both parts inside the 14 days</li><li>High-priority exams within days 1–5</li><li>≤ 2 exams per student per day (overlap sets)</li><li>Transfer feasibility: break ≥ travel (+45 min in the 12:00–2:00 window)</li><li>Junior–senior pairing</li><li>Senior present for high-priority / technical labs</li><li>Workload within ±35% of mean</li></ol>
+<div class="tablewrap"><table><tr><th>Constraint</th><th>Tool</th><th>Why</th></tr><tr><td>Compatibility</td><td>Encoding</td><td>restricted alphabet — violations unwritable</td></tr><tr><td>Capacity, splitting, pairing</td><td>Decoder</td><td>built correct during construction</td></tr><tr><td>Chain gap &amp; congestion</td><td>Penalty by degree</td><td>(or decoder ordering)</td></tr><tr><td>Infeasible transfer</td><td>Hard penalty</td><td>physically impossible — must never survive</td></tr></table></div>
+<div class="tablewrap"><table><tr><th>Component</th><th>Formula</th><th>Unit</th><th>Purpose</th></tr><tr><td>f₁ activation cost</td><td>Σ active site-sessions × fee</td><td>RM</td><td>THE cost driver</td></tr><tr><td>f₂ priority lateness</td><td>Σ w × day index</td><td>w-days</td><td>front-loading</td></tr><tr><td>f₃ congestion</td><td>Σ max(0, examsPerStudentDay − 2)</td><td>violations</td><td>student welfare</td></tr><tr><td>f₄ transfer exposure</td><td>Σ transfers × (15 + 45·peak(slot))</td><td>min</td><td>slot-dependent — computed per assignment</td></tr><tr><td>f₅ invigilator imbalance</td><td>max deviation from mean</td><td>%</td><td>fairness</td></tr><tr><td>f₆ compactness</td><td>makespan</td><td>days</td><td>optional</td></tr></table></div>
+<p style="font-size:14.5px"><b>Normalise &amp; weight:</b> f′ = (f − min)/(max − min), each range justified (activation max = all 3 sites × 28 sessions active); weights sum to 1, cost emphasised per the Finance mandate — cite it.</p>
+<p style="font-size:14.5px"><b>Critical awareness:</b> the cost–capacity trade-off is genuine — cheap Satellite South lacks GPU labs and senior capacity, so activation savings fight compatibility and pairing. Alternative: NSGA-II front over (cost, student welfare, fairness).</p>
+<h3>Q3 — Alternative algorithm <span class="marks">10</span></h3>
+<p style="font-size:14.5px"><b>ACO:</b> construction never opens an illegal hall — compatibility and capacity respected per step. Pheromone lives on (exam → session-hall) pairs; the fitness carries over unchanged and drives the deposit; params α, β, ρ.</p>
+<p style="font-size:14.5px"><b>The paper's bespoke ask — clustering + peak-travel:</b> build both pressures into the heuristic η: boost halls in <em>already-active</em> site-sessions (clustering ⇒ fewer activation fees) and set η ≈ 0 for any choice forcing a 12:00–2:00 transfer on a student or invigilator. The deposit is fitness-driven (f₁ + f₄), so good clustering trails reinforce every iteration.</p>
+<p style="font-size:14.5px"><b>Judgement:</b> prefer ACO — this scenario is compatibility-dense, and both named goals map naturally onto η.</p>`,
+ma2601pt:`<h3 style="margin-top:6px">Assumptions</h3>
+<ul style="font-size:14.5px"><li>10 exam days × 2 sessions = 20 session-slots.</li><li>Splitting an exam across halls requires same site + same session.</li><li>Invigilator travel consumes break time (travel ≠ rest).</li><li>Student-overlap sets given as data.</li></ul>
+<h3>Q1 — Chromosome &amp; decoding <span class="marks">15</span></h3>
+<p style="font-size:14.5px"><b>Decisions:</b> exam → (day 1–10, session M/A, hall-set); invigilator team per exam-hall.</p>
+<p style="font-size:14.5px"><b>Encoding (Pattern 1):</b> one integer gene per exam = session-slot index 1–20, with the <b>alphabet restricted to that exam's permitted day-window</b> — window “days 2–4” ⇒ legal values {3…8} only, violations unwritable. Optional permutation segment = placement priority for the greedy hall assigner. Worked example: <span class="mono">E7 → 13</span> = day 7, morning; the decoder then seats E7's 240 students best-fit, splitting across two same-site halls if none fits alone.</p>
+<p style="font-size:14.5px"><b>Decoder, two phases:</b></p>
+<ol style="font-size:14.5px"><li>Place exams in permutation order, assigning halls best-fit while honouring capacity, the 30-min reset, ≤3 sessions/hall/day, and split-only-within-site+session.</li><li>Assign invigilators — senior where mandated, 6-h daily cap, 30-min rest after 3 h, one site per day (travel time is not rest).</li></ol>
+<p style="font-size:14.5px"><b>Operators:</b> 1-point/uniform crossover + window-respecting reset mutation — both preserve legality.</p>
+<p style="font-size:14.5px"><b>Data, grouped:</b></p>
+<ul style="font-size:14.5px"><li><b>Exam:</b> duration, intake, level, priority, day-window, overlap set</li><li><b>Hall:</b> site, capacity, reset needs</li><li><b>Invigilator:</b> role, base site, availability</li><li><b>Policy:</b> session times · ≤2/day target · 15-min inter-site travel</li></ul>
+<p style="font-size:14.5px"><b>Justified</b> vs a two-gene (session + hall) design: longer, and the hall half is decoder-derivable anyway.</p>
+<h3>Q2 — Validity &amp; fitness <span class="marks">15</span></h3>
+<p style="font-size:14.5px"><b>Validity — eight numbered checks:</b></p>
+<ol style="font-size:14.5px"><li>Day-window respected</li><li>No student clash within a session (overlap sets)</li><li>Hall capacity, with the splitting rule</li><li>30-min reset honoured</li><li>≤ 3 sessions per hall per day</li><li>Split only within same site + session</li><li>Invigilator 6-h cap, rest after 3 h, single-site mobility</li><li>Senior present where mandated</li></ol>
+<div class="tablewrap"><table><tr><th>Constraint</th><th>Tool</th></tr><tr><td>Day-window</td><td>Encoding alphabet</td></tr><tr><td>Capacity, reset, splitting, hall cap</td><td>Decoder</td></tr><tr><td>Student clashes</td><td>Penalty by count</td></tr></table></div>
+<p style="font-size:14.5px">The paper lists “≤2 exams per student per day” under its <em>aims</em> — classify it as soft-with-penalty and say you are doing so deliberately (Q2 explicitly asks for the hard/soft split).</p>
+<div class="tablewrap"><table><tr><th>Component</th><th>Formula</th><th>Unit</th><th>Purpose</th></tr><tr><td>f₁ priority earliness</td><td>Σ w<sub>priority</sub> × day</td><td>w-days</td><td>important exams early</td></tr><tr><td>f₂ congestion</td><td>Σ max(0, examsPerStudentDay − 2)</td><td>violations</td><td>student welfare</td></tr><tr><td>f₃ invigilator idle</td><td>Σ (on-site hrs − invigilating hrs)</td><td>hrs</td><td>the paper names it</td></tr><tr><td>f₄ afternoon pressure</td><td>afternoons + bonus for consecutive days</td><td>count</td><td>also named</td></tr><tr><td>f₅ invigilator fairness</td><td>std-dev of weekly hours</td><td>hrs</td><td>spread the load</td></tr><tr><td>f₆ compactness</td><td>last exam day</td><td>days</td><td>finish early</td></tr></table></div>
+<p style="font-size:14.5px"><b>Fairness &amp; priority (the paper's own bullet):</b> fairness enters twice — f₅ spreads staff load, and priority weights (e.g. 3/1) front-load important exams. State the weights, and that they are policy.</p>
+<p style="font-size:14.5px"><b>Normalise &amp; weight:</b> f′ = (f − min)/(max − min), each range justified (idle max = every invigilator on-site all 10 days doing nothing); weights sum to 1, lower better — or hand the board an NSGA-II front over (student welfare, staff fairness, compactness).</p>
+<p style="font-size:14.5px"><b>Critical awareness:</b> suppressing afternoons squeezes the same exams into mornings and raises congestion — a real trade-off; weights are policy.</p>
+<h3>Q3 — Alternative algorithm <span class="marks">10</span></h3>
+<p style="font-size:14.5px"><b>PSO with random keys:</b> session key banded over the exam's LEGAL window only (compatibility survives), order key = placement priority (SPV). Decoder and fitness carry over unchanged; no operators to design; params ω, c₁, c₂, swarm size.</p>
+<p style="font-size:14.5px"><b>Judgement:</b> least implementation effort — the decoder already guarantees hall/invigilator feasibility.</p>`,
+maHosp:`<h3 style="margin-top:6px">Assumptions</h3>
+<ul style="font-size:14.5px"><li>1 surgery = 1 block including sterilisation; 15 blocks per theatre-week (5 × 3).</li><li>Anaesthetists interchangeable; elective waiting days known.</li></ul>
+<h3>Q1 — Chromosome &amp; decoding <span class="marks">15</span></h3>
+<p style="font-size:14.5px"><b>Decisions:</b></p>
+<ol style="font-size:14.5px"><li>Surgery → (theatre, day, block)</li><li>Anaesthetist per theatre-block — <i>derivable</i> by the decoder from the pool</li><li>Evening activation per theatre-day — <i>derivable</i>: active iff an evening surgery is placed. State it!</li></ol>
+<p style="font-size:14.5px"><b>Encoding (Pattern 1):</b> one integer gene per surgery = theatre-block slot index (1–60), with <b>legal values restricted</b>: cardiac ∈ T1/T2 slots only, neuro ∈ T4 slots only; plus a permutation segment ordering surgeries for the greedy placer when slots collide. Worked example: <span class="mono">S7 (cardiac) → slot 4 (T1 Tue-AM)</span>.</p>
+<p style="font-size:14.5px"><b>Decoder, two phases:</b></p>
+<ol style="font-size:14.5px"><li>Place surgeries by permutation order into their gene slots, bumping collisions to the surgeon's next legal slot (repair-in-decoder); enforce surgeon ≤2 blocks/day and one-theatre-per-block while placing.</li><li>Assign anaesthetists left-to-right, keeping ≥2 free per day as emergency cover.</li></ol>
+<p style="font-size:14.5px"><b>Data:</b> surgery (ID, specialty, priority, surgeon, listing date) · theatre (equipment, cost tier) · surgeon availability · anaesthetist pool · policy (RM3,000 evening fee, 45-min turnaround, cover rule). <b>Justify</b> vs a block-per-theatre chromosome (the grouping alternative).</p>
+<h3>Q2 — Validity &amp; fitness <span class="marks">15</span></h3>
+<p style="font-size:14.5px"><b>Validity — seven numbered checks:</b></p>
+<ol style="font-size:14.5px"><li>Specialty–theatre compatibility</li><li>One surgery per theatre-block</li><li>Surgeon ≤ 2 blocks per day</li><li>Surgeon not double-booked in a block</li><li>Emergencies within days 1–2</li><li>No anaesthetist double-booked (≤1 theatre-block at a time)</li><li>≥ 2 anaesthetists free per day</li></ol>
+<div class="tablewrap"><table><tr><th>Checks</th><th>Tool</th></tr><tr><td>① ③ ④</td><td>Encoding / decoder</td></tr><tr><td>②</td><td>Decoder</td></tr><tr><td>⑤</td><td>Penalty by days-late × emergency weight (or hard — argue either, consistently)</td></tr><tr><td>⑥ ⑦</td><td>Decoder with validity check</td></tr></table></div>
+<div class="tablewrap"><table><tr><th>Component</th><th>Formula</th><th>Unit</th><th>Purpose</th></tr><tr><td>f₁ elective waiting</td><td>Σ (scheduled day − listing day)</td><td>days</td><td>core service metric</td></tr><tr><td>f₂ priority earliness</td><td>weighted, w = 5/3/1</td><td>w-days</td><td>urgent first</td></tr><tr><td>f₃ evening fees</td><td>Σ evening theatre-days × 3000</td><td>RM</td><td>out-of-hours cost</td></tr><tr><td>f₄ surgeon balance</td><td>std-dev of weekly blocks</td><td>blocks</td><td>fairness</td></tr><tr><td>f₅ running cost</td><td>via theatre tier matrix</td><td>RM</td><td>cheap theatres preferred</td></tr><tr><td>f₆ makespan</td><td>last elective's day</td><td>days</td><td>the missing-component story</td></tr></table></div>
+<p style="font-size:14.5px"><b>The story to tell on f₆:</b> without it, two schedules with equal waiting can hide a congested Friday — when the ranking disagrees with intuition, find what intuition measures that no component captures.</p>
+<p style="font-size:14.5px"><b>Normalise &amp; weight:</b> f₃ max = 20 evening activations × 3,000; weights sum to 1. <b>Conflict to name:</b> evening fees vs waiting — banning evenings delays electives; weights are policy. Pareto alternative for the hospital board.</p>
+<h3>Q3 — Alternative algorithm <span class="marks">10</span></h3>
+<p style="font-size:14.5px"><b>ACO:</b> ants place surgeries one at a time (emergencies first), choosing among currently legal theatre-blocks with P ∝ τ·η, where η = 1/(waiting created); compatibility and limits are never offered illegally. Fitness unchanged, drives the deposit; params α, β, ρ, ~30 ants.</p>
+<p style="font-size:14.5px"><b>Judgement:</b> prefer ACO here — the compatibility + surgeon-limit web is dense.</p>`,
+maDrone:`<h3 style="margin-top:6px">Assumptions</h3>
+<ul style="font-size:14.5px"><li>Flight time = 6 min/km return, including service; pad slot = launch only.</li><li>Batteries charged at start; jobs known at 08:00 (static problem).</li></ul>
+<h3>Q1 — Chromosome &amp; decoding <span class="marks">15</span></h3>
+<p style="font-size:14.5px"><b>Decisions:</b></p>
+<ol style="font-size:14.5px"><li>Job → drone</li><li>Delivery order per drone</li><li>Launch slot — <i>derivable</i> by the decoder from order + pad exclusivity + the recharge rule</li></ol>
+<p style="font-size:14.5px"><b>Encoding (Pattern 2 shines):</b> a <b>block chromosome</b> — job IDs cut by 5 separators = 6 drone routes; block membership = assignment, position within a block = order. Heavy jobs' blocks restricted to the two heavy-lift drones (repair swaps a &gt;5 kg job out of a standard drone's block). Justification partner: integer drone-vector + permutation.</p>
+<p style="font-size:14.5px"><b>Decoder, two phases:</b></p>
+<ol style="font-size:14.5px"><li>Read blocks → per drone, sequence jobs, inserting the 20-min recharge after every 2 jobs.</li><li>Serialise launches onto the single pad in 5-min slots, delaying later drones; per-job dispatch ≥ earliest-dispatch.</li></ol>
+<p style="font-size:14.5px"><b>Data:</b> job (weight, distance, tier, earliest-dispatch) · drone (capacity class, energy multiplier) · policy (recharge rule, pad slotting, 10:00 promise, 8 km/11:00 wind rule, RM25 voucher).</p>
+<h3>Q2 — Validity &amp; fitness <span class="marks">15</span></h3>
+<p style="font-size:14.5px"><b>Validity checks:</b></p>
+<ol style="font-size:14.5px"><li>Capacity class respected (&gt;5 kg ⇒ heavy-lift only)</li><li>Recharge inserted after every 2 jobs</li><li>Pad exclusivity (one launch per 5-min slot)</li><li>No dispatch before earliest-dispatch</li><li><b>Wind rule (hard):</b> no &gt;8 km flight departing after 11:00</li><li>Every job flown</li></ol>
+<p style="font-size:14.5px"><b>The voucher question (the deliberate ambiguity):</b> lateness on premium promises is <b>soft with a literal price</b> — the company monetised it at RM25, so it belongs in fitness (f₃ = 25 × missed promises), NOT validity. Say why: a promise is breakable at a cost; physics isn't. Discussing this is the critical-awareness mark.</p>
+<div class="tablewrap"><table><tr><th>Component</th><th>Formula</th><th>Unit</th><th>Purpose</th></tr><tr><td>f₁ total lateness</td><td>Σ lateness</td><td>min</td><td>service quality</td></tr><tr><td>f₂ energy</td><td>Σ km × rate × multiplier (heavy ×1.6)</td><td>RM</td><td>operating cost</td></tr><tr><td>f₃ vouchers</td><td>25 × missed premium promises</td><td>RM</td><td>the monetised soft constraint</td></tr><tr><td>f₄ balance</td><td>std-dev of jobs per drone</td><td>jobs</td><td>fair workload</td></tr><tr><td>f₅ makespan</td><td>last delivery time</td><td>min</td><td>window fits</td></tr></table></div>
+<p style="font-size:14.5px"><b>Normalise &amp; weight;</b> conflict to name: energy avoids the expensive heavy-lifters, balance wants spreading — weights are policy. NSGA-II alternative hands dispatch a menu.</p>
+<h3>Q3 — Alternative algorithm <span class="marks">10</span></h3>
+<p style="font-size:14.5px"><b>PSO:</b> two random keys per job — assignment key banded over LEGAL drones only (heavy jobs: bands span the 2 heavy-lifters), order key sorted per drone (SPV). Decoder + fitness unchanged; no operators to design; params ω, c₁, c₂, swarm size.</p>
+<p style="font-size:14.5px"><b>Judgement:</b> prefer PSO for implementation speed — the decoder already guarantees feasibility.</p>`
 };
 
 /* ============================ MOCK PAPERS ============================ */
@@ -1666,6 +1725,36 @@ $$(".checkpoint").forEach(cp=>{
 
 /* ---------- model answers injection ---------- */
 Object.entries(MA).forEach(([id,html])=>{const el=document.getElementById(id);if(el)el.innerHTML=html});
+
+/* ---------- dynamic study plan (adapts to days remaining) ---------- */
+(function(){
+  const el=$("#planBody");if(!el)return;
+  const DAY=864e5;
+  const today=new Date();today.setHours(0,0,0,0);
+  const testDay=new Date(TEST_DATE);testDay.setHours(0,0,0,0);
+  const d=Math.round((testDay-today)/DAY); // 0 = test day
+  const label=i=>{ // i = days from today
+    if(i===0)return"Today";
+    if(i===1)return"Tomorrow";
+    const dt=new Date(today.getTime()+i*DAY);
+    return dt.toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"short"});
+  };
+  const testLabel=d===0?"Today":label(d)+" — test day";
+  let rows=[];
+  if(d<=0){
+    rows=[["Today — test day","Cram Sheet once, flashcards once. Be at the hall by 2:15 — arriving at 2:30 sharp still buys reading time. You've done the work."]];
+  }else if(d===1){
+    rows=[["Today","Cram Sheet + one full flashcard pass. One timed mock ONLY if you feel fresh — otherwise weak checkpoints and an early night."],[testLabel,"Arrive by 2:15. Assumptions first, Q1 capped at 40 minutes."]];
+  }else if(d===2){
+    rows=[["Today","Any unfinished lessons, then Mock #1 (2601 FT, timed 2 h). Self-mark honestly."],["Tomorrow","Weak checkpoints + full Quiz Bank run in the morning, Mock #2 (PT-ODL) after lunch, Cram Sheet in the evening. Sleep."],[testLabel,"Arrive by 2:15. You've already sat this test twice."]];
+  }else{
+    rows=[["Today","Lessons 1–8 + the Port Walkthrough. Do every checkpoint quiz."],["Tomorrow","Lessons 9–12, then Mock #1 (2601 FT paper, timed 2 h). Self-mark."]];
+    if(d>=4)rows.push([label(2)+(d>4?" onwards":""),"Review weak checkpoints, full Quiz Bank run, flashcards to 100%. Mock #2 (PT-ODL paper)."]);
+    rows.push([label(d-1),"Cram Sheet only. Flashcards once. Sleep."]);
+    rows.push([testLabel,"Arrive by 2:15. You've done this several times already."]);
+  }
+  el.innerHTML=`<div class="tablewrap"><table><tr><th>Day</th><th>Do</th></tr>${rows.map(r=>`<tr><td style="white-space:nowrap">${r[0]}</td><td>${r[1]}</td></tr>`).join("")}</table></div>`;
+})();
 
 /* ---------- past-paper question bank ---------- */
 (function(){
