@@ -22,20 +22,7 @@
   --ease:cubic-bezier(.22,1,.36,1);
   --r-sm:8px; --r-md:12px; --r-lg:16px;
 }
-@media (prefers-color-scheme:dark){
-  :root{
-    --bg:#17181A; --panel:#1E2023; --panel2:#1A1C1E;
-    --ink:#E9EAEB; --ink-soft:#C6C9CC; --muted:#9CA1A7;
-    --line:#2E3134; --line-soft:#27292C;
-    --accent:#85BB9E; --accent-ink:#A9D3BC; --accent-soft:#212928; --accent-line:#3A4744;
-    --gene:#D3A268; --gene-soft:#2B2419; --gene-ink:#D3A268;
-    --bad:#D98A72; --bad-soft:#33231D;
-    --shadow-sm:0 1px 2px rgba(0,0,0,.35);
-    --shadow-md:0 1px 2px rgba(0,0,0,.35),0 12px 28px -14px rgba(0,0,0,.5);
-  }
-  .btn:not(.ghost){color:#0F1211}
-  .q .opt.sel-right::before,.q .opt.sel-wrong::before{color:#0F1211}
-}
+/* Light is the site default for everyone; dark applies only via the explicit toggle (data-theme). */
 :root[data-theme="dark"]{
   --bg:#17181A; --panel:#1E2023; --panel2:#1A1C1E;
   --ink:#E9EAEB; --ink-soft:#C6C9CC; --muted:#9CA1A7;
@@ -269,7 +256,7 @@ textarea.answerbox:focus{border-color:var(--accent);outline:none;box-shadow:0 0 
 }
 </style>
 <script>
-try{var _t=JSON.parse(localStorage.getItem("cio_theme"));if(_t==="dark"||_t==="light")document.documentElement.dataset.theme=_t;else document.documentElement.dataset.theme=(window.matchMedia&&matchMedia("(prefers-color-scheme:dark)").matches)?"dark":"light";}catch(e){document.documentElement.dataset.theme="light";}
+try{var _t=JSON.parse(localStorage.getItem("cio_theme"));if(_t==="dark"||_t==="light")document.documentElement.dataset.theme=_t;else document.documentElement.dataset.theme="light";}catch(e){document.documentElement.dataset.theme="light";}
 </script>
 <style>
 /* Embedded fonts: Fraunces (variable, roman+italic) + Instrument Sans (variable, roman+italic), latin + latin-ext subsets. Generated - don't edit by hand. */
