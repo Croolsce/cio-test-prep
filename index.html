@@ -33,7 +33,7 @@
     --shadow-sm:0 1px 2px rgba(0,0,0,.35);
     --shadow-md:0 1px 2px rgba(0,0,0,.35),0 12px 28px -14px rgba(0,0,0,.5);
   }
-  .btn{color:#0F1211}
+  .btn:not(.ghost){color:#0F1211}
   .q .opt.sel-right::before,.q .opt.sel-wrong::before{color:#0F1211}
 }
 :root[data-theme="dark"]{
@@ -46,7 +46,7 @@
   --shadow-sm:0 1px 2px rgba(0,0,0,.35);
   --shadow-md:0 1px 2px rgba(0,0,0,.35),0 12px 28px -14px rgba(0,0,0,.5);
 }
-:root[data-theme="dark"] .btn{color:#0F1211}
+:root[data-theme="dark"] .btn:not(.ghost){color:#0F1211}
 :root[data-theme="dark"] .q .opt.sel-right::before,:root[data-theme="dark"] .q .opt.sel-wrong::before{color:#0F1211}
 :root[data-theme="light"]{
   --bg:#F6F8F3; --panel:#FFFFFF; --panel2:#F0F3EC;
@@ -58,7 +58,7 @@
   --shadow-sm:0 1px 2px rgba(32,41,31,.05);
   --shadow-md:0 1px 2px rgba(32,41,31,.05),0 10px 26px -14px rgba(32,41,31,.22);
 }
-:root[data-theme="light"] .btn{color:#fff}
+:root[data-theme="light"] .btn:not(.ghost){color:#fff}
 
 /* ============ base ============ */
 *{box-sizing:border-box}
