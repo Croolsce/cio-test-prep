@@ -224,7 +224,13 @@ hr{border:none;border-top:1px solid var(--line);margin:40px 0}
 /* ---- handwritten answer view toggles ---- */
 .hw-toggles{display:flex;gap:8px;margin:14px 0 6px;flex-wrap:wrap;align-items:center}
 .hw-toggles .btn.active{background:var(--accent-soft);color:var(--accent-ink);border-color:var(--accent-line)}
-.paper.plain{--pen:#2F4870;--pen-soft:#8195B5;background:#FFFFFF}
+.paper.plain{
+  --pen:#2F4870;--pen-soft:#8195B5;
+  --panel:#FFFFFF;--panel2:#F0F3EC;--line:#DFE6DA;
+  --accent:#31694B;--accent-ink:#24523A;--accent-soft:#E4EFE3;--accent-line:#C2D6C0;
+  --gene:#A8683B;--gene-soft:#F5ECE2;--gene-ink:#875228;
+  --bad:#A84A38;--bad-soft:#F6EAE5;
+  background:#FFFFFF}
 .paper.plain::before{display:none}
 .paper.normal-font{font-family:var(--sans)}
 
