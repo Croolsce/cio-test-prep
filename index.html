@@ -14,6 +14,7 @@
   --accent:#31694B; --accent-ink:#24523A; --accent-soft:#E4EFE3; --accent-line:#C2D6C0;
   --gene:#A8683B; --gene-soft:#F5ECE2; --gene-ink:#875228;
   --bad:#A84A38; --bad-soft:#F6EAE5;
+  --paper:#FDFCF5; --paper-rule:#E7E3D2; --paper-margin:#E5B8B0; --pen:#2F4870; --pen-soft:#8195B5;
   --shadow-sm:0 1px 2px rgba(32,41,31,.05);
   --shadow-md:0 1px 2px rgba(32,41,31,.05),0 10px 26px -14px rgba(32,41,31,.22);
   --serif:'Fraunces',Georgia,'Iowan Old Style',serif;
@@ -30,6 +31,7 @@
   --accent:#85BB9E; --accent-ink:#A9D3BC; --accent-soft:#212928; --accent-line:#3A4744;
   --gene:#D3A268; --gene-soft:#2B2419; --gene-ink:#D3A268;
   --bad:#D98A72; --bad-soft:#33231D;
+  --paper:#212327; --paper-rule:#2F3238; --paper-margin:#6E4640; --pen:#A8BEE0; --pen-soft:#66788F;
   --shadow-sm:0 1px 2px rgba(0,0,0,.35);
   --shadow-md:0 1px 2px rgba(0,0,0,.35),0 12px 28px -14px rgba(0,0,0,.5);
 }
@@ -42,6 +44,7 @@
   --accent:#31694B; --accent-ink:#24523A; --accent-soft:#E4EFE3; --accent-line:#C2D6C0;
   --gene:#A8683B; --gene-soft:#F5ECE2; --gene-ink:#875228;
   --bad:#A84A38; --bad-soft:#F6EAE5;
+  --paper:#FDFCF5; --paper-rule:#E7E3D2; --paper-margin:#E5B8B0; --pen:#2F4870; --pen-soft:#8195B5;
   --shadow-sm:0 1px 2px rgba(32,41,31,.05);
   --shadow-md:0 1px 2px rgba(32,41,31,.05),0 10px 26px -14px rgba(32,41,31,.22);
 }
@@ -189,6 +192,34 @@ hr{border:none;border-top:1px solid var(--line);margin:40px 0}
 .takeaway p{margin:8px 0;max-width:none}
 .takeaway>*:first-child{margin-top:0}
 .takeaway>*:last-child{margin-bottom:0}
+
+/* ---- handwritten answer paper: ruled page + pen ink (page-hand) ---- */
+.hw-scenario{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow-sm);padding:16px 22px 18px;margin:18px 0 24px;max-width:74ch}
+.hw-scenario::before{content:'QUESTION PAPER';display:block;font:650 10.5px/1 var(--sans);letter-spacing:.1em;color:var(--muted);margin:0 0 10px}
+.hw-scenario p{font-family:var(--serif);font-size:15.5px;line-height:1.66;margin:10px 0;max-width:none}
+.hw-scenario p:last-child{margin-bottom:0}
+.paper{position:relative;background:var(--paper) repeating-linear-gradient(to bottom,transparent 0 31px,var(--paper-rule) 31px 32px);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow-md);margin:26px 0;max-width:74ch;padding:18px 26px 26px 62px;font-family:'Segoe Print','Bradley Hand','Comic Sans MS',cursive;font-size:14.5px;line-height:1.85;color:var(--pen);overflow-x:auto}
+.paper::before{content:'';position:absolute;top:0;bottom:0;left:44px;width:1.5px;background:var(--paper-margin)}
+.paper .hw-head{font-weight:700;font-size:16px;margin:0 0 12px;padding-bottom:4px;border-bottom:2px solid var(--pen-soft);display:inline-block}
+.paper h3{font-family:inherit;color:var(--pen);font-size:15px;font-weight:700;margin:22px 0 6px;max-width:none;line-height:1.7;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1.5px}
+.paper p{margin:0 0 10px;max-width:none}
+.paper ul,.paper ol{max-width:none;margin:6px 0 12px;padding-left:24px}
+.paper li{margin:3px 0;line-height:1.8}
+.paper li::marker{color:var(--pen-soft)}
+.paper b{font-weight:700;color:inherit}
+.paper table{font-family:inherit;font-size:13px;line-height:1.55;margin:12px 0;border:1.5px solid var(--pen-soft);background:transparent;width:auto;min-width:60%}
+.paper th{font:inherit;font-size:12.5px;font-weight:700;color:var(--pen);background:transparent;text-transform:none;letter-spacing:0;padding:6px 12px;border-bottom:1.5px solid var(--pen-soft);border-right:1px dashed var(--pen-soft)}
+.paper td{color:var(--pen);padding:6px 12px;border-bottom:1px dashed var(--pen-soft);border-right:1px dashed var(--pen-soft);font-weight:400}
+.paper th:last-child,.paper td:last-child{border-right:none}
+.paper tr:last-child td{border-bottom:none}
+.paper td:first-child{font-weight:700}
+.paper .genes{flex-wrap:wrap;margin:4px 0 8px}
+.paper .genes .g{font:600 12px/1 var(--mono);background:transparent;border:1.5px solid var(--pen-soft);color:var(--pen);border-radius:4px}
+.paper .genes .lbl{color:var(--pen-soft);font-family:inherit}
+.paper .genes .g.bad{border-color:var(--bad);color:var(--bad);text-decoration:line-through;text-decoration-thickness:1px}
+.paper .mk{font-family:var(--sans);font-size:12.5px;line-height:1.55;color:var(--accent-ink);background:var(--accent-soft);border-radius:6px;padding:7px 11px;margin:2px 0 14px;max-width:58ch}
+.paper .mk::before{content:'✎ ';font-weight:700}
+@media (max-width:640px){.paper{padding:14px 16px 20px 42px}.paper::before{left:28px}}
 
 /* ============ surfaces ============ */
 .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);padding:20px 24px;margin:20px 0}
@@ -376,6 +407,7 @@ try{var _t=JSON.parse(localStorage.getItem("cio_theme"));if(_t==="dark"||_t==="l
   <div class="navgroup">Practice</div>
   <button class="navlink" data-page="walk"><span class="num"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="3.6" cy="12.4" r="1.7"/><circle cx="12.4" cy="3.6" r="1.7"/><path d="M5.2 11.2C7.8 9.6 8.2 6.4 10.8 4.8"/></svg></span> Port Walkthrough <span class="tick">✓</span></button>
   <button class="navlink" data-page="write"><span class="num"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.8 8h10.4"/><path d="M9.6 4.4 13.2 8l-3.6 3.6"/></svg></span> How to Write Answers <span class="tick">✓</span></button>
+  <button class="navlink" data-page="hand"><span class="num"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 11.1c1.6-.5 2.4-1.5 3-3.1.5-1.4 1.2-3.6 2.7-3.3 1.7.3.3 3-.3 4.5-.4 1 .5 1.5 1.3.9 1-.7 1.8-1.6 2.7-1.5.9.1.9 1 .4 1.8"/><path d="M2.6 13.6h10.8"/></svg></span> Solved Answer Papers <span class="tick">✓</span></button>
   <button class="navlink" data-page="fullq1"><span class="num"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 13.2 3 13.7l.5-2.1 7-7a1.1 1.1 0 0 1 1.6 1.6l-7 7Z"/><path d="M3 3.2h4.2"/><path d="M3 6.4h3"/></svg></span> Full Q1, Written Out <span class="tick">✓</span></button>
   <button class="navlink" data-page="papers"><span class="num"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3.2a.7.7 0 0 1 .7-.7H9.2L12 5.3V12.8a.7.7 0 0 1-.7.7H4.7a.7.7 0 0 1-.7-.7Z"/><path d="M9 2.7V5.5h2.9"/></svg></span> Sample Papers <span class="tick">✓</span></button>
   <button class="navlink" data-page="mock"><span class="num"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="9" r="5"/><path d="M8 6.8V9l1.8 1.2"/><path d="M6.5 2h3"/></svg></span> Mock Exam Mode <span class="tick">✓</span></button>
@@ -427,7 +459,7 @@ try{var _t=JSON.parse(localStorage.getItem("cio_theme"));if(_t==="dark"||_t==="l
     <div class="pathrow">
       <div class="pt">Practice</div>
       <div><div class="pd">The lecturer's mock worked end-to-end, four papers with model answers, and a timed dress rehearsal.</div>
-      <div class="chips"><a class="toc-chip" href="#walk" data-goto="walk">Port Walkthrough</a><a class="toc-chip" href="#papers" data-goto="papers">Sample Papers</a><a class="toc-chip" href="#mock" data-goto="mock">Mock Exam</a></div></div>
+      <div class="chips"><a class="toc-chip" href="#walk" data-goto="walk">Port Walkthrough</a><a class="toc-chip" href="#hand" data-goto="hand">Solved Answer Papers</a><a class="toc-chip" href="#papers" data-goto="papers">Sample Papers</a><a class="toc-chip" href="#mock" data-goto="mock">Mock Exam</a></div></div>
     </div>
     <div class="pathrow">
       <div class="pt">Memorise</div>
@@ -2191,9 +2223,437 @@ try{var _t=JSON.parse(localStorage.getItem("cio_theme"));if(_t==="dark"||_t==="l
   <div class="sec">
   <h2>Tonight's drill</h2>
   <p>Once through this page, then one rehearsal: invent a scenario you have never seen — <b>hospital ward scheduling</b> is the obvious candidate — and handwrite the Q1 skeleton for it in 25 minutes: decisions, three assumption rows, chromosome drawn twice, one decoded example, numbered decoder, four data bullets, one justification. If you can do it for a scenario you invented, tomorrow's scenario is just new nouns.</p>
+  <p>When you finish — or if you stall — mark yourself against the <b>Solved Answer Papers</b> page: three complete scripts written exactly the way these recipes say to write them, including one for a hospital ward roster.</p>
   </div>
 
-  <div class="next"><button class="btn ghost" data-goto="l12">← The Exam Method</button><button class="btn" data-goto="fullq1">See a full Q1 written out →</button></div>
+  <div class="next"><button class="btn ghost" data-goto="l12">← The Exam Method</button><button class="btn" data-goto="hand">See the solved answer papers →</button></div>
+</section>
+
+<!-- ============================ HANDWRITTEN MODEL ANSWERS ============================ -->
+<section class="page" id="page-hand">
+  <p class="kicker">Practice · the whole paper, solved</p>
+  <h1>Solved Answer Papers</h1>
+  <p class="lede">Three complete exam scripts — full Q1, Q2 and Q3, written from start to end the way you will actually write today: by hand, under the clock, following the How-to-Write recipes block by block. One scenario you have never seen, the real March 2026 paper, and the port. Same skeleton three times; only the nouns change.</p>
+  <div class="keyfact"><div><p>The <b>blue handwriting</b> is the student's script — realistic full-marks volume for a two-hour paper, not an essay. The <b>green ✎ notes</b> are the examiner lens: why that block earns its marks. They are annotations, not part of the answer — never write them in the hall.</p></div></div>
+
+  <div class="sec">
+  <h2>Script 1 — Hospital ward roster (the unseen scenario)</h2>
+  <p>This is the drill scenario from the How-to-Write page, invented from nothing — proof that the recipes survive contact with nouns nobody has taught you. If tomorrow's paper is in the <b>allocate-things-to-slots-under-rules</b> family his whiteboard hinted at, this is the closest rehearsal on the site.</p>
+<div class="hw-scenario">
+  <p><b>St. Anne's General Hospital — 7-day admission plan + nurse roster.</b> Three wards: <b>W1 General (8 beds)</b>, <b>W2 Isolation wing (2 beds)</b>, <b>W3 High-Dependency Unit (4 beds)</b> — W3 keeps its own dedicated staff, rostered outside this problem. Six patients await admission; each has a <b>type</b> (emergency / urgent / elective), a <b>special need</b> (none / isolation / HDU), a <b>length of stay (LOS)</b> in 8-hour shifts, and <b>days already waited</b>:</p>
+  <div class="tablewrap"><table>
+    <tr><th>Patient</th><th>Type</th><th>Special need</th><th>LOS (shifts)</th><th>Already waited (days)</th></tr>
+    <tr><td>P1</td><td>Elective</td><td>—</td><td>6</td><td>9</td></tr>
+    <tr><td>P2</td><td>Urgent</td><td>—</td><td>8</td><td>3</td></tr>
+    <tr><td>P3</td><td>Elective</td><td>Isolation</td><td>5</td><td>12</td></tr>
+    <tr><td>P4</td><td>Emergency</td><td>HDU</td><td>12</td><td>0</td></tr>
+    <tr><td>P5</td><td>Urgent</td><td>—</td><td>9</td><td>2</td></tr>
+    <tr><td>P6</td><td>Elective</td><td>—</td><td>4</td><td>8</td></tr>
+  </table></div>
+  <p>Time runs in 8-hour shifts — <b>Morning 07–15, Afternoon 15–23, Night 23–07</b> — over 7 days (21 shifts); admissions happen in <b>morning shifts only</b>. <b>Isolation patients must go to W2; HDU patients must go to W3; every other patient may use W1 or W2.</b> <b>Emergencies must be admitted on day 1; urgent patients by day 2.</b></p>
+  <p>Nine nurses cover W1 and W2: <b>N1–N3 senior</b>, <b>N4–N9 registered</b>. Each ward-shift needs <b>exactly one nurse</b>; every ward-day needs <b>at least one senior</b>; a nurse works <b>at most one shift a day, five shifts a week, and two consecutive nights</b>. If no nurse is legal for a ward-shift, an <b>agency nurse</b> is hired at <b>RM 400 per shift</b>.</p>
+  <p>The hospital wants: <b>waiting kept low · emergencies and urgent cases first · a fair spread of shifts — and of nights — across nurses · minimal agency spend</b>.</p>
+</div>
+
+<div class="paper">
+  <p class="hw-head">Q1 — the chromosome <span class="marks">15</span></p>
+  <h3>The decisions</h3>
+  <p>For each patient the scheduler must decide <b>which ward</b> they enter (categorical, restricted by compatibility) and <b>on which day</b> they are admitted — admissions happen in morning shifts only. For the nurses, the scheduler must decide <b>who covers each ward-shift</b> on W1 and W2, but I make that a <em>decoder</em> decision fed by a priority permutation rather than a per-shift gene. Everything else in the brief — LOS, beds, days already waited — is data, not a decision. In the literature this is a patient-to-bed assignment plus nurse-rostering problem; the ward decision is the one that creates the W2 contention, the compatibility checks and the new data groups, exactly as a berth decision does in a port.</p>
+  <p class="mk">problem understanding — all decision variables named, and where each lives (3)</p>
+
+  <h3>Assumptions</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Component</th><th>Value</th><th>Why</th></tr>
+    <tr><td>Time granularity</td><td>8-hour shifts; admissions morning-only</td><td>a night admission needs a care team the brief does not roster</td></tr>
+    <tr><td>LOS mechanics</td><td>whole shifts; bed frees the shift after discharge</td><td>the brief gives LOS but not the discharge moment</td></tr>
+    <tr><td>W3 staffing</td><td>own dedicated staff — rota covers W1, W2 only</td><td>stated in the brief</td></tr>
+    <tr><td>Agency rate</td><td>RM 400 per shift</td><td>the brief says “minimal agency spend” but names no figure — the number is mine, so I state it</td></tr>
+    <tr><td>Priority weights</td><td>5 / 3 / 1 for emergency / urgent / elective; already-waited days tie-break electives</td><td>the brief ranks types but gives no numbers</td></tr>
+  </table></div>
+
+  <h3>The chromosome</h3>
+  <p>One candidate solution is a string of <b>21 genes in two segments</b>. Segment A holds twelve integer genes — one <span class="genes"><span class="g">Ward</span><span class="g alt">Day</span></span> block per patient. Segment B is a permutation of the nine nurses (N1–N9): the priority order the decoder consults when filling shifts. Ward genes: <b>P1∈{1,2}, P2∈{1,2}, P3∈{2}, P4∈{3}, P5∈{1,2}, P6∈{1,2}</b> — the alphabet is restricted per patient, so an incompatible admission is <em>unwritable</em>. Day genes: <b>P4∈{1}</b> (emergency — day 1), <b>P2, P5∈{1,2}</b> (urgent — by day 2), <b>P1, P3, P6∈{1…7}</b>.</p>
+  <p>Legal, and what it means: <span class="genes"><span class="lbl">P1</span><span class="g">2</span><span class="g alt">3</span><span class="lbl">P2</span><span class="g">2</span><span class="g alt">2</span><span class="lbl">P3</span><span class="g">2</span><span class="g alt">1</span><span class="lbl">P4</span><span class="g">3</span><span class="g alt">1</span><span class="lbl">P5</span><span class="g">1</span><span class="g alt">2</span><span class="lbl">P6</span><span class="g">1</span><span class="g alt">4</span><span class="g sep">‖</span></span> <span class="mono">N1 N4 N7 N2 N5 N8 N3 N6 N9</span> — P1 to W2 on day 3, P2 to W2 day 2, P3 to W2 day 1, P4 to W3 day 1, P5 to W1 day 2, P6 to W1 day 4; nurses considered in that order when shifts are filled.</p>
+  <p>The same drawing with one illegal gene: <span class="genes"><span class="lbl">P4</span><span class="g bad">1</span><span class="g alt">1</span></span> — <b>invalid: P4 needs an HDU bed and HDU patients go to W3 only; ward 1 is outside P4's alphabet</b>. The second drawing is the cheapest proof on the paper that the encoding has boundaries.</p>
+  <p class="mk">representation — length, gene types, legal values per gene, worked example, compatibility handled by the alphabet (4)</p>
+
+  <h3>Decoding — a numbered procedure</h3>
+  <p><b>Phase 1, admissions.</b> <b>Step 1:</b> read each patient block — ward and day genes already lie inside their legal alphabets, so <em>compatibility and the admission windows are enforced here, before the decoder runs</em>. <b>Step 2:</b> compute each patient's occupied shifts — from the morning of day d for LOS − 1 further shifts. <b>Step 3:</b> walk patients in day order; before committing one, test the ward's occupancy <em>shift by shift</em> — a level that falls when a patient is discharged, not a running total. <b>Step 4:</b> if any shift of the stay would exceed the ward's beds, <b>repair</b>: delay the admission to the next morning on which the whole stay fits. <b>Step 5:</b> mark the patient admitted; all six must be placed (completeness).</p>
+  <p><b>Phase 2, nurses.</b> <b>Step 6:</b> walk the W1/W2 ward-shifts chronologically. <b>Step 7:</b> for each ward-shift take the first nurse in segment B who is legal: not already on duty that shift, under five shifts this week, not a third consecutive night. <b>Step 8:</b> prefer a senior while the ward-day still lacks one; if no nurse is legal, record an <b>agency shift</b> — priced in Q2's f₅.</p>
+  <p>Each step names the constraint it enforces: compatibility and windows in the alphabet (step 1), capacity in steps 3–4, completeness in 5, the nurse caps in 7, senior coverage and full coverage in 8.</p>
+  <p class="mk">decoding — ordered phases, and every step pinned to the constraint it enforces (4)</p>
+
+  <h3>Genetic operators</h3>
+  <p>Segment A: <b>one-point crossover cutting between patient blocks</b> — never inside a [Ward|Day] pair — and mutation that resets a gene to a random value inside its own alphabet. Segment B: <b>order crossover (OX) and swap mutation</b>, which keep a permutation a permutation. Both operators therefore preserve the alphabets, so they can never manufacture the illegal genes the encoding forbids.</p>
+
+  <h3>Data required</h3>
+  <ul>
+    <li><b>Entity data</b> — per patient: type, special need, LOS, days already waited.</li>
+    <li><b>Resource data</b> — per ward: bed count and type; per nurse: grade (senior / registered).</li>
+    <li><b>Relationship data</b> — the patient × ward compatibility table, <em>which exists only because the ward is a decision</em>.</li>
+    <li><b>Policy data</b> — the shift grid, admission windows, nurse caps, the RM 400 agency rate, the 5 / 3 / 1 priority weights.</li>
+  </ul>
+  <p>Every number my Q2 fitness uses is findable in this list or in the assumptions table — that is the mechanical test.</p>
+  <p class="mk">data requirements, grouped into four labelled bullets (2)</p>
+
+  <h3>Justification</h3>
+  <p>I chose heterogeneous [Ward|Day] blocks plus a nurse permutation over the two named alternatives. A flat bed-grid — one gene per ward per shift, 21 genes per patient — would be six times longer and would scatter one patient's decision across unrelated genes, so crossover could splice half an admission. One gene per nurse-shift (42 genes) would encode what the greedy decoder derives from a nine-gene permutation; the permutation is shorter and keeps every nurse rule in one place. The block boundaries are what make crossover safe, and the restricted alphabets are what make compatibility and the admission windows unwritable violations.</p>
+  <p>This space holds 2·7 × 2·2 × 1·7 × 1·1 × 2·2 × 2·7 = <b>21,952</b> legal admission plans times 9! = 362,880 nurse orders — roughly <b>8 billion</b> rosters, with no gradient to follow because the objective is a decoded roster rather than a formula. That is why a population search, not enumeration.</p>
+  <p class="mk">justification against two named alternatives + the search-space line (2)</p>
+</div>
+
+<div class="paper">
+  <p class="hw-head">Q2 — fitness and validity <span class="marks">15</span></p>
+  <h3>Sort the rules first — two columns</h3>
+  <p><b>Hard</b> — a plan that breaks one is not a roster: <b>①</b> patient–ward compatibility (P3 only W2, P4 only W3, the rest W1 or W2) · <b>②</b> admission windows (emergency day 1, urgent by day 2) · <b>③</b> ward capacity — for every ward and every shift, occupancy ≤ beds, counted as a <em>level</em> that falls at discharge · <b>④</b> every patient admitted exactly once · <b>⑤</b> a nurse on at most one ward-shift per shift · <b>⑥</b> at most five shifts a week · <b>⑦</b> at most two consecutive nights · <b>⑧</b> every ward-day on W1/W2 has at least one senior · <b>⑨</b> every ward-shift covered — by a rostered nurse, or by an agency nurse, because the policy allows agency cover at RM 400.</p>
+  <p><b>Soft</b> — breakable, but each breach costs quality: keep waiting low · emergencies and urgent cases first · spread the shifts fairly across nurses · spread the nights fairly · keep agency spend low. Nothing in the brief is decoration; every clause lands in one column or the other.</p>
+  <p>One quantity sits in both columns, and I should be the one to point at it: <b>check ⑨ is also f₅.</b> That is not double counting — the hard check settles whether the roster is complete at all; f₅ measures <em>how much</em> cover we had to buy, so the search feels a slope instead of a cliff.</p>
+  <p class="mk">every hard constraint enumerated as a checkable test; the hard/soft split done visibly (3)</p>
+
+  <h3>Validity — which tool for which rule</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Checks</th><th>Tool</th><th>Why</th></tr>
+    <tr><td>① ②</td><td>Encoding alphabet</td><td>the illegal gene is unwritable, so it can never be born</td></tr>
+    <tr><td>③</td><td>Decoder + repair</td><td>the decoder delays an overflowing admission to the next morning the whole stay fits — a bed overflow cannot be edited out without wrecking the rest of the roster</td></tr>
+    <tr><td>④</td><td>Decoder</td><td>completeness — all six blocks walked</td></tr>
+    <tr><td>⑤ ⑥ ⑦</td><td>Decoder counters</td><td>the greedy fill never assigns a nurse who is on duty, capped or on a third night</td></tr>
+    <tr><td>⑧</td><td>Decoder preference</td><td>seniors taken first while a ward-day still lacks one</td></tr>
+    <tr><td>⑨</td><td>Decoder + penalty</td><td>if no nurse is legal the shift is covered by agency and f₅ prices it</td></tr>
+  </table></div>
+  <p>Because my alphabet and decoder enforce ①–⑦ by construction, those constraints never reach the fitness function; the remaining rules are scored as weighted penalties. I name one cost of my choices: <b>repair biases the search toward later admission days</b> — accepted, because an overflow cannot be scored at all, and penalties need their weights guessed right, which is its own risk.</p>
+  <p class="mk">constraint handling reasoned — each rule routed to a tool, and a cost named (3)</p>
+
+  <h3>The fitness — five components, formula + unit + purpose + one worked number</h3>
+  <p><b>f₁ total waiting</b> = Σ (admission day − 1), in day-waits — the core service metric. For the worked chromosome: 0 + 0 + 1 + 1 + 2 + 3 = <b>7</b>; worst case 3 electives × 6 + 2 urgents × 1 + 0 = 20, so f₁′ = 7/20 = <b>0.35</b>.</p>
+  <p><b>f₂ priority earliness</b> = Σ weight<sub>type</sub> × day with weights 5/3/1, in weight-days — urgent care first. Worked: 5·1 + 1·1 + 3·2 + 3·2 + 1·3 + 1·4 = <b>25</b>; worst 5·1 + 3·2·2 + 1·7·3 = 38, so f₂′ = 25/38 ≈ <b>0.66</b>.</p>
+  <p><b>f₃ shift balance</b> = standard deviation of weekly shifts per nurse, in shifts — fairness, which the brief names. The finished week spreads 42 shifts as [5,5,5,5,5,5,4,4,4]: mean ≈ 4.7, σ ≈ <b>0.47</b>; worst [5×8, 2] gives σ ≈ 0.94, so f₃′ ≈ <b>0.50</b>.</p>
+  <p><b>f₄ night balance</b> = standard deviation of night shifts per nurse, in nights — the same idea for the worst shift. Worked: 14 nights as [2,2,2,2,2,1,1,1,1] gives σ ≈ <b>0.50</b>; worst [2×7, 0, 0] gives σ ≈ 0.83, so f₄′ ≈ <b>0.60</b>.</p>
+  <p><b>f₅ agency spend</b> = Σ agency shifts × RM 400, in ringgit — the hospital's last named aim. Worked: <b>0</b>; normaliser 42 × 400 = RM 16,800, so f₅′ = 0.</p>
+  <p class="mk">each component: formula, unit, purpose, and one number actually worked on the decoded roster (4)</p>
+
+  <h3>Directions, units, then weights</h3>
+  <p>Every term is a cost — waiting, earliness, imbalance, spend are all “lower is better” — and every term is normalised to [0,1] against its own worst case before weighting, because day-waits, weight-days, shift counts and ringgit are different units and cannot be added raw. Weights: <b>w₁ 0.30 · w₂ 0.25 · w₃ 0.20 · w₄ 0.10 · w₅ 0.15</b>, summing to 1. Hierarchy sentence: <b>care for patients (f₁, f₂) outranks fairness to staff (f₃, f₄), which outranks money (f₅)</b> — the brief lists care first and agency spend last, so the weights follow the brief, not taste. Assembled: F = 0.30·f₁′ + 0.25·f₂′ + 0.20·f₃′ + 0.10·f₄′ + 0.15·f₅′ = 0.105 + 0.165 + 0.100 + 0.060 + 0 = <b>0.430</b> for the worked chromosome, lower is better.</p>
+  <p class="mk">normalisation before aggregation + weights stated and tied to the brief (2)</p>
+
+  <h3>Critical awareness</h3>
+  <p>The two cheapest moves fight each other: admitting everyone on day 1 would cut waiting but would fill W2 and force repair-delays for isolation patients while squeezing nurse legality toward agency shifts — so f₁ and f₅ are separate terms rather than one “goodness” number, and the weights are what pick the winner. That ordering is policy, not mathematics — a different hospital would swap them. And if a roster that feels wrong scores well, the missing-component test applies: a night-heavy nurse with a light week would score fine on f₃ alone, which is exactly why f₄ exists as its own term. Whatever appears in my Q1 chromosome has now reappeared in Q2, component by component.</p>
+  <p class="mk">conflicting objectives named, weights called policy, missing-component story told (3)</p>
+</div>
+
+<div class="paper">
+  <p class="hw-head">Q3 — the alternative algorithm: ACO <span class="marks">10</span></p>
+  <h3>Part A — differences, GA vs ACO</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Aspect</th><th>GA (Q1)</th><th>ACO</th></tr>
+    <tr><td>Representation</td><td>fixed-length chromosome (21 genes)</td><td>no chromosome — solutions built step by step</td></tr>
+    <tr><td>Solution creation</td><td>random init + crossover + mutation</td><td>ants construct along a graph, guided by pheromone</td></tr>
+    <tr><td>Constraint handling</td><td>alphabet + repair + penalties after building</td><td>invalid options filtered <em>during</em> construction</td></tr>
+    <tr><td>Diversity control</td><td>crossover &amp; mutation rates</td><td>pheromone evaporation rate</td></tr>
+    <tr><td>Memory of past search</td><td>the population itself</td><td>the pheromone matrix</td></tr>
+    <tr><td>Elitism</td><td>best chromosomes copied over</td><td>best ants deposit extra pheromone</td></tr>
+    <tr><td>Escaping local optima</td><td>mutation; risk without diversity</td><td>evaporation forgets stale trails</td></tr>
+  </table></div>
+  <p class="mk">a sensible named algorithm + the GA/ACO contrast written out (2 + part of 2)</p>
+
+  <h3>Part B — how ACO would be applied here</h3>
+  <p><b>Nodes come from the scenario.</b> Each of the six patients is a stage, visited in a fixed construction order — emergency first, then urgent, then elective, each group tie-broken by days already waited; the construction order is itself a choice, so I state it.</p>
+  <p><b>Options at each node.</b> The legal (ward, day) pairs for that patient — the same alphabets my Q1 genes had: P3 is only ever offered W2, P4 only W3, P2 and P5 only days 1–2.</p>
+  <p><b>Filtering as the ant moves.</b> Before the ant chooses, I remove every option that would break a hard rule: a (ward, day) pair whose whole LOS would push the ward over its bed count in any shift is never offered — the same occupancy arithmetic the GA's decoder used, now applied <em>during</em> construction instead of after. This one sentence is the entire ACO-vs-GA argument.</p>
+  <p><b>Choice and pheromone.</b> P(ward, day) ∝ τ(patient, ward, day)<sup>α</sup> × η<sup>β</sup>, with η = weight<sub>type</sub> / admission day, so earlier and more urgent options smell better. After each iteration trails evaporate (× 0.7) and the best ants deposit extra. I would set <b>30 ants, α = 1, β = 2, ρ = 0.7</b>.</p>
+  <p><b>What carries over.</b> Once an ant has placed all six patients, the nurse roster is built by the <em>same</em> Phase-2 greedy decoder from Q1 — unchanged — and my Q2 fitness F scores the finished roster <em>unchanged</em>: the objective, the weights and the normalisation all carry over; the only new job is that F now drives pheromone deposits as well as selection.</p>
+  <p class="mk">encoding differences (3) + evaluation strategy (2) + implementation details with numbers (2)</p>
+
+  <h3>Judgement</h3>
+  <p>Compared with the GA, ACO produces far fewer invalid solutions — the filters make legality free — but it needs a pheromone structure (6 patients × 3 wards × 7 days ≈ 126 entries) and three extra parameters to tune. For this problem the GA's alphabet already achieves most of the same effect, so I would keep the GA as the primary design — and switch to ACO if the constraint web grew denser, because feasibility then comes free by construction.</p>
+  <p class="mk">one-sentence comparative judgement (1)</p>
+</div>
+
+
+
+  </div>
+
+  <div class="sec">
+  <h2>Script 2 — Exam timetabling (the real March 2026 paper)</h2>
+  <p>The scenario the March 2026 cohort actually sat, answered here with the same structure the professor's circulated sample used — the 5-gene block, ceil(Slot/2) decoding, the 1000×HC fitness — compressed to what a hand can produce in two hours.</p>
+<div class="hw-scenario">
+  <p><b>APU examination timetabling — the real March 2026 paper.</b> The examinations office must timetable <b>40 exams</b> over <b>10 weekdays × 2 sessions</b> (09:00–12:00 and 14:00–17:00) — <b>20 session-slots</b> — across <b>3 campus locations</b>. There are <b>12 halls</b> (4 per location) with capacities from <b>50 to 300</b>, and <b>20 invigilators</b>: <b>6 senior</b> and <b>14 standard</b>, who may be asked to travel between locations.</p>
+  <p>Each exam has: a <b>duration</b> (1–3 hours), a <b>student count</b>, its <b>programme</b>, a <b>priority</b> (high or normal — roughly 30% are high), for some exams a <b>permitted day-window</b> (e.g. “days 2–4 only”), and <b>student-overlap sets</b> — which other exams share its students.</p>
+  <p>Rules: a hall hosts <b>one exam per session</b>; a large exam may <b>split across two halls</b>, but only at the <b>same location and same session</b>; consecutive exams in one hall need a <b>30-minute reset</b>; no student may sit <b>two exams in one session</b>; a <b>high-priority exam needs a senior invigilator</b>; invigilators work <b>at most 3 sessions a day</b>.</p>
+  <p>Aims: <b>high-priority exams early · fair invigilator workload · no student more than two exams a day · minimal inter-location travel · a compact exam period · avoid consecutive afternoons · low invigilator idle time</b>.</p>
+</div>
+
+<div class="paper">
+  <p class="hw-head">Q1 — the chromosome <span class="marks">15</span></p>
+  <h3>The decisions</h3>
+  <p>For each exam the scheduler must decide: <b>which time slot</b> (when), <b>which hall — or two halls if split</b> (where), and <b>which invigilator(s)</b> (who). That is five decisions per exam, and one block of five genes carries them all. Everything else in the brief — durations, capacities, overlap sets — is data, not a decision. In the literature this is an examination timetabling problem, and naming the family is a credibility line.</p>
+  <p class="mk">all decision variables identified, and where each lives (3)</p>
+
+  <h3>Assumptions</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Component</th><th>Value</th><th>Why</th></tr>
+    <tr><td>Split rule</td><td>split = 2 halls, same location + same session</td><td>the brief allows splitting but does not say the two halls share a site — so I say it</td></tr>
+    <tr><td>Hall reset</td><td>30 minutes between consecutive exams in one hall</td><td>the brief implies preparation but names no figure — the number is mine</td></tr>
+    <tr><td>Invigilator travel</td><td>inter-site travel eats into the gap and is <em>not</em> rest</td><td>the brief allows travel but does not say it is free</td></tr>
+    <tr><td>Large-exam staffing</td><td>a second invigilator for exams over 150 students</td><td>gives the Inv2 gene its meaning</td></tr>
+    <tr><td>Senior rule</td><td>high-priority ⇒ invigilator 1 is senior</td><td>the brief demands senior cover but not which gene carries it</td></tr>
+    <tr><td>Exam counts</td><td>40 exams, ~30% high-priority; hall capacities 50–300; 6 senior + 14 standard invigilators</td><td>the brief's own figures, restated here so every number downstream is traceable</td></tr>
+  </table></div>
+
+  <h3>The chromosome</h3>
+  <p>One candidate solution is a string of <b>200 genes: 40 blocks of five</b>, one block per exam — <span class="genes"><span class="g">Slot</span><span class="g">Hall1</span><span class="g alt">Hall2</span><span class="g">Inv1</span><span class="g alt">Inv2</span></span>. <b>Slot ∈ 1–20</b>; <b>Hall1 ∈ 1–12</b>; <b>Hall2 ∈ 0–12</b> (0 = no split); <b>Inv1 ∈ 1–20</b>; <b>Inv2 ∈ 0–20</b> (0 = none). Two alphabets are deliberately restricted: an exam with a day-window gets only that window's slots (window “days 2–4” ⇒ Slot ∈ 3–8), and a high-priority exam gets only seniors in Inv1 (∈ 1–6) — so the two rules that matter most are <em>unwritable violations</em>.</p>
+  <p>Legal block, read back: <span class="genes"><span class="g">3</span><span class="g">3</span><span class="g alt">0</span><span class="g">2</span><span class="g alt">8</span></span> — see the worked example below.</p>
+  <p>The same drawing with one illegal gene: <span class="genes"><span class="g">3</span><span class="g">3</span><span class="g bad">6</span><span class="g">2</span><span class="g alt">8</span></span> — <b>invalid: a split must use two halls at the same location, and hall 6 is at a different site from hall 3</b>. Drawing the boundary being broken is the cheapest proof that the encoding has one.</p>
+  <p class="mk">representation — length, gene types, legal values, worked example, key rules handled in the alphabet (4)</p>
+
+  <h3>Worked example with the paper's own numbers</h3>
+  <p>The block <span class="mono">[3, 3, 0, 2, 8]</span> decodes as: <b>Slot 3</b> → Day = ceil(3/2) = <b>day 2</b>, and 3 is odd, so the <b>morning</b> session. <b>Hall 3</b> — capacity 200, which fits the exam's 180 students ✓. <b>Hall2 = 0</b> — no split. <b>Inv1 = 2</b> — senior ✓, required because this exam is high-priority. <b>Inv2 = 8</b> — a standard second invigilator, because 180 students exceeds my 150 threshold. One block, every gene interpreted, every value checked against a rule.</p>
+
+  <h3>Decoding — a numbered procedure</h3>
+  <p><b>Step 1:</b> extract each 5-gene block in exam order. <b>Step 2:</b> map the slot gene — day = ceil(Slot/2), odd slots are mornings, even slots afternoons. <b>Step 3:</b> look up Hall1 and test capacity against the exam's student count — the capacity rule is enforced here; if Hall2 ≠ 0, test the split rule (same location, same session) — enforced here too. <b>Step 4:</b> look up Inv1 and Inv2; a high-priority exam must have a senior in Inv1 — enforced here (and already in the alphabet). <b>Step 5:</b> build the day-by-day grid and run Q2's validity checks over the finished timetable — clashes, reset buffers, invigilator caps are detected <em>here</em>, because they depend on the whole plan, not on one block.</p>
+  <p>Every step names the constraint it enforces: windows in the alphabet before decoding, capacity and the split rule in step 3, the senior rule in step 4, clash/reset/cap detection in step 5. A decoder that just “builds the timetable” scores half of one that says where each rule dies.</p>
+  <p class="mk">decoding, step by step, each step pinned to the constraint it enforces (4)</p>
+
+  <h3>Genetic operators</h3>
+  <p><b>One-point crossover cuts between blocks</b> — always at a multiple of five — so it swaps whole exams and can never splice half of one exam's five genes. Mutation resets a single gene to a random value inside its own alphabet — a windowed exam's slot stays inside its window, a high-priority exam's Inv1 stays senior. Both operators therefore preserve the alphabets by construction.</p>
+
+  <h3>Data required</h3>
+  <ul>
+    <li><b>Entity data</b> — per exam: duration, student count, programme, priority, permitted window.</li>
+    <li><b>Resource data</b> — per hall: location, capacity; per invigilator: role, home site.</li>
+    <li><b>Relationship data</b> — the student-overlap sets: which exams share students, which is what the clash checks need.</li>
+    <li><b>Policy data</b> — session times, the 30-minute reset, travel time, the senior rule, the 150-student second-invigilator threshold.</li>
+  </ul>
+  <p>Every number my Q2 fitness uses is findable in this list or in the assumptions table.</p>
+  <p class="mk">data requirements, grouped into four labelled bullets (2)</p>
+
+  <h3>Justification</h3>
+  <p>I chose the heterogeneous 5-gene block over a one-gene-per-slot chromosome, because block boundaries let crossover cut <em>between exams</em> and never split one exam's five genes — the one-gene-per-slot design scatters one exam's decision across the grid, so a single cut can leave an exam with a hall but no slot. This space holds about (20 × 12 × 13 × 20 × 21)<sup>40</sup> ≈ <b>10<sup>244</sup></b> candidate timetables — no gradient, no enumeration — which is why a population search is the right tool at all.</p>
+  <p class="mk">justification against a named alternative + the search-space line (2)</p>
+</div>
+
+<div class="paper">
+  <p class="hw-head">Q2 — fitness and validity <span class="marks">15</span></p>
+  <h3>Sort the rules first — twelve hard, seven soft</h3>
+  <p><b>Hard</b> — a plan that breaks one is not a timetable: <b>①</b> every exam gets exactly one slot inside its permitted window · <b>②</b> hall capacity respected — for a split exam, in <em>both</em> halls · <b>③</b> a hall hosts at most one exam per session (the split pair is the one exception) · <b>④</b> a split uses two halls at one location and one session · <b>⑤</b> 30-minute reset between consecutive exams in a hall · <b>⑥</b> an exam fits inside its 3-hour session — with a reset, duration + 0.5 h ≤ 3 h when a hall is shared · <b>⑦</b> no student in two exams in one session (the overlap sets) · <b>⑧</b> no invigilator in two places in one session · <b>⑨</b> an invigilator does at most 3 sessions a day · <b>⑩</b> a senior on every high-priority exam · <b>⑪</b> a second invigilator on exams over 150 students · <b>⑫</b> every exam has at least one invigilator.</p>
+  <p><b>Soft</b> — breakable, but each breach costs quality: fair invigilator workload · no student more than two exams a day (congestion) · high-priority exams early · minimal inter-location travel · a compact exam period · few consecutive afternoons · low invigilator idle time.</p>
+  <p>One classification I make deliberately, because Q2 asks for the split by name: the paper lists “≤ 2 exams per student per day” under its <em>aims</em> and never calls a three-exam day impossible — so it is breakable at a price, and I classify it <b>soft-with-penalty</b> rather than hard. Classifying it hard is defensible; listing it in both columns without saying which is not.</p>
+  <p class="mk">the hard/soft split done visibly, twelve against seven, with the borderline case argued (3)</p>
+
+  <h3>Aggregation — the penalty form, and why here</h3>
+  <p><b>Fitness = 1000 × ΣHardViolations + Σ wᵢ · Softᵢ</b> — minimise; a perfect timetable scores 0. I use the penalty form rather than a normalised weighted sum because my decoder can still produce a timetable that breaks the whole-plan rules — clashes, resets, caps depend on the entire grid, not on one block — so legality must live inside the fitness arithmetic. The 1000 is chosen so <em>any single hard breach outweighs the entire soft ladder at its realistic worst</em>: feasibility always outranks quality.</p>
+
+  <h3>Validity — which tool for which rule, and what happens to invalid offspring</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Checks</th><th>Tool</th><th>Why</th></tr>
+    <tr><td>①</td><td>Encoding alphabet</td><td>a windowed exam's slot gene only ever holds a slot inside its window — unwritable</td></tr>
+    <tr><td>② ③ ④</td><td>Decoder</td><td>capacity and the split rule tested in decoder step 3; hall occupancy step 5</td></tr>
+    <tr><td>⑤ ⑥</td><td>Decoder</td><td>reset and session-fit tested while the grid is built</td></tr>
+    <tr><td>⑩</td><td>Alphabet + decoder</td><td>Inv1 restricted to seniors; re-checked in step 4</td></tr>
+    <tr><td>⑪ ⑫</td><td>Decoder</td><td>the 150-student rule and completeness in step 4</td></tr>
+    <tr><td>⑦ ⑧ ⑨</td><td>Penalty</td><td>detected in step 5; each counts 1000 — clashes cascade when moved, so repair is the wrong tool for them</td></tr>
+  </table></div>
+  <p><b>Repair first for the cheap deterministic fixes:</b> swap a standard invigilator for a senior on a high-priority exam, reset an out-of-window slot to the nearest legal slot in the window, force a cross-site split back to one location. <b>Penalty for the rest:</b> a student clash cannot be edited out without moving an exam and creating a new one, so let the 1000-weight selection evolve it away. I name one cost of each choice: repair biases the search toward whatever the fixed version prefers; penalties need their weight guessed right.</p>
+  <p class="mk">every check routed to a tool, repair vs penalty reasoned, a cost named for each (3)</p>
+
+  <h3>The seven components — formula + unit + one worked number</h3>
+  <p><b>f₁ workload balance</b> = standard deviation of weekly sessions per invigilator, in sessions — the brief names staff complaints first. About 60 invigilator-sessions over the week means a mean of 3; a timetable where every invigilator does exactly 3 scores f₁ = <b>0</b>, and a spread of [4, 4, 3, 3, 3, 2] already scores ≈ 0.7.</p>
+  <p><b>f₂ congestion</b> = count exams per programme per day; every day a programme goes above 2 adds (excess × 50), in weighted violations. Worked: programme IT has three exams on day 5 → (3 − 2) × 50 = <b>50</b>.</p>
+  <p><b>f₃ priority earliness</b> = Σ of the day index over high-priority exams, in weighted days. Worked: the twelve high-priority exams sit on days 1,1,2,2,2,3,3,4,4,5,6,7 → <b>40</b>; a fully front-loaded plan (four per day on days 1–3) would score 24.</p>
+  <p><b>f₄ travel</b> = Σ cross-site moves per invigilator, in moves. Worked: the example grid has six → <b>6</b>.</p>
+  <p><b>f₅ period compactness</b> = the last exam's day, in days. Worked: the last exam sits on day <b>9</b> of 10.</p>
+  <p><b>f₆ afternoon streaks</b> = Σ over programmes of consecutive-afternoon runs, in runs. Worked: programme BA has afternoons on days 6 and 7 → <b>1</b> streak.</p>
+  <p><b>f₇ invigilator idle</b> = Σ (hours on site − hours invigilating), in hours. Worked: a senior who covers one 3-hour session but must be on site for 6 is <b>3</b> idle hours.</p>
+  <p class="mk">each component: formula, unit, and one number worked on the example timetable (4)</p>
+
+  <h3>Weights — the ladder, and every rung tied to the brief</h3>
+  <p>Hard = <b>1000</b>; then <b>workload 80</b> (staff complaints are in the brief), <b>congestion 50</b>, <b>priority-early 30</b>, <b>travel 25</b>, <b>period length 20</b>, <b>afternoon streaks 15</b>, <b>idle 10</b> — each weight tied to something the scenario says, not to taste. The hierarchy sentence: feasibility outranks fairness to staff, which outranks convenience to students, which outranks operational efficiency. If I could not rank them, the recorded fallback is all-hard-equal, all-soft-equal.</p>
+  <p class="mk">weights stated and justified against the brief (2)</p>
+
+  <h3>Critical awareness</h3>
+  <p>Two of my soft aims pull against each other: front-loading high-priority exams (f₃) squeezes them into mornings and leaves afternoons for everyone else, which is exactly the afternoon-streak pattern f₆ punishes — the weights are what pick the winner, and they are policy, not mathematics. The same tension runs through travel: cutting travel (f₄) locks invigilators to their home site and pushes the load onto whoever lives near the large halls, worsening f₁. And f₆ exists at all because the missing-component test caught it: a timetable with zero congestion could still chain every afternoon, and a fitness blind to that would disagree with intuition. Whatever appears in my Q1 chromosome has now reappeared in Q2, component by component.</p>
+  <p class="mk">conflicting objectives named, weights called policy, the missing-component story (3)</p>
+</div>
+
+<div class="paper">
+  <p class="hw-head">Q3 — the alternative algorithm: ACO <span class="marks">10</span></p>
+  <h3>Part A — differences, GA vs ACO</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Aspect</th><th>GA (Q1)</th><th>ACO</th></tr>
+    <tr><td>Representation</td><td>fixed-length chromosome (200 genes)</td><td>no chromosome — solutions built step by step</td></tr>
+    <tr><td>Solution creation</td><td>random init + crossover + mutation</td><td>ants construct along a graph, guided by pheromone</td></tr>
+    <tr><td>Constraint handling</td><td>alphabet + repair + penalties after building</td><td>invalid options filtered <em>during</em> construction</td></tr>
+    <tr><td>Diversity control</td><td>crossover &amp; mutation rates</td><td>pheromone evaporation rate</td></tr>
+    <tr><td>Memory of past search</td><td>the population itself</td><td>the pheromone matrix</td></tr>
+    <tr><td>Elitism</td><td>best chromosomes copied over</td><td>best ants deposit extra pheromone</td></tr>
+    <tr><td>Escaping local optima</td><td>mutation; risk without diversity</td><td>evaporation forgets stale trails</td></tr>
+  </table></div>
+  <p class="mk">a sensible named algorithm + the GA/ACO contrast written out</p>
+
+  <h3>Part B — how ACO would be applied here</h3>
+  <p><b>Nodes come from the scenario.</b> Each exam is a stage, and the ant places the exams one at a time in a fixed construction order — high-priority first, then by descending student count, because the hard-to-place exams are placed while the board is still empty. The construction order is itself a choice, so I state it.</p>
+  <p><b>Options at each node.</b> The legal values my Q1 genes had: a slot inside the exam's window, a hall — or a same-site hall pair if it must split — and invigilators.</p>
+  <p><b>Filtering as the ant moves.</b> Before the ant chooses, every option that would break a hard rule is removed: a slot outside the window is never offered; a hall that cannot hold the exam is never offered; a slot that clashes with an already-placed exam from the same overlap set is never offered; a non-senior is never offered to a high-priority exam. Rules are therefore enforced <em>during</em> construction rather than repaired after — that one sentence is the entire ACO-vs-GA argument.</p>
+  <p><b>Choice and pheromone.</b> P(option) ∝ τ(exam, option)<sup>α</sup> × η<sup>β</sup>, with η = priority weight / day index, so early slots and high-priority fits smell better. After each iteration trails evaporate (× 0.7) and the best ants deposit extra. I would set <b>40 ants, α = 1, β = 2, ρ = 0.7</b>.</p>
+  <p><b>What carries over.</b> My Q2 fitness scores each ant's finished timetable <em>unchanged</em> — the 1000 × ΣHard + Σwᵢ·Softᵢ sum, the weights and the ladder all carry over; the only new job is that the score now drives pheromone deposits as well as selection. Because the filters already killed most hard breaches, the 1000-weight term should rarely fire at all under ACO.</p>
+  <p class="mk">encoding differences + evaluation strategy + implementation with numbers</p>
+
+  <h3>Judgement</h3>
+  <p>Compared with the GA, ACO produces far fewer invalid solutions — the filters make legality free — but it needs a large pheromone structure (40 exams × 20 slots × 12 halls and more, with no fixed-length individual to index it) and three extra parameters to tune. For this paper the GA's block chromosome plus restricted alphabets achieves most of the same effect with a simpler machine, so I would keep the GA as the primary design — and switch to ACO if the overlap sets and hall windows grew dense enough that repair and penalties started doing real work.</p>
+  <p class="mk">one-sentence comparative judgement</p>
+</div>
+
+
+  </div>
+
+  <div class="sec">
+  <h2>Script 3 — The port (the site's spine)</h2>
+  <p>The scenario every lesson on this site uses. The full Q1 page walks this answer in slow motion; here it is at exam speed, with the Q2 and Q3 scripts the walkthrough doesn't show.</p>
+<div class="hw-scenario">
+  <p><b>A container port — berth, crane and buffer scheduling (the professor's own mock, condensed).</b> Three quay sections — <b>A</b> (standard berth, hazmat-certified, reefer power, buffer 200), <b>B</b> (long berth, no hazmat, no reefer, buffer 250), <b>C</b> (long berth, hazmat-certified, no reefer, buffer 150). Three cranes: <b>C1 50 containers/hour (electric)</b>, <b>C2 60/hour (diesel)</b>, <b>C3 45/hour (electric)</b>. Four ships arrive in the <b>08:00–16:00 shift</b> (480 minutes):</p>
+  <div class="tablewrap"><table>
+    <tr><th>Ship</th><th>ETA</th><th>Containers</th><th>Priority</th><th>Special need</th></tr>
+    <tr><td>SH1</td><td>08:00</td><td>150</td><td>High</td><td>perishable — needs reefer power</td></tr>
+    <tr><td>SH2</td><td>09:30</td><td>200</td><td>Normal</td><td>large vessel — long berth</td></tr>
+    <tr><td>SH3</td><td>10:15</td><td>100</td><td>Emergency</td><td>hazardous — certified berth</td></tr>
+    <tr><td>SH4</td><td>11:00</td><td>180</td><td>Normal</td><td>standard</td></tr>
+  </table></div>
+  <p>Compatibility: <b>SH2 is too long for A</b> (B or C only); <b>SH3 is hazardous and B is uncertified</b> (A or C only). Cranes need a <b>30-minute break after 3 hours continuous work</b>; the electric cranes additionally need a <b>1-hour charge after 4 hours of work</b>. One ship occupies its section at a time, and a berth needs a changeover between ships. Every zone's buffer must never exceed its own capacity. Berth handling cost in RM (ship × section):</p>
+  <div class="tablewrap"><table>
+    <tr><th>Cost (RM)</th><th>A</th><th>B</th><th>C</th></tr>
+    <tr><td>SH1</td><td>40</td><td>70</td><td>90</td></tr>
+    <tr><td>SH2</td><td>not allowed</td><td>50</td><td>80</td></tr>
+    <tr><td>SH3</td><td>60</td><td>not allowed</td><td>90</td></tr>
+    <tr><td>SH4</td><td>70</td><td>55</td><td>45</td></tr>
+  </table></div>
+  <p>Aims: <b>low waiting · priorities early · cranes kept busy · low energy cost · finish by 16:00 · stay below buffer capacity · low berth handling cost · balanced yards · clear the quay as early as possible</b>.</p>
+</div>
+
+<div class="paper">
+  <p class="hw-head">Q1 — the chromosome <span class="marks">15</span></p>
+  <h3>The decisions</h3>
+  <p>Four things are genuinely open: <b>which section</b> each ship berths in, <b>which crane</b> serves each unloading job, <b>the order</b> the jobs are worked, and <b>the clock time</b> each begins. Two live in the chromosome — section and order — and two are derived by the decoder from the rules below. Everything else (ETAs, rates, the cost matrix) is data, not a decision. In the literature this is BACASP — Berth Allocation + Crane Assignment + crane Scheduling — and naming the family is a credibility line.</p>
+  <p class="mk">all decision variables identified, and where each lives (3)</p>
+
+  <h3>Assumptions</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Component</th><th>Value</th><th>Why</th></tr>
+    <tr><td>Time granularity</td><td>15-minute steps; crane time rounded <em>up</em> to the next step</td><td>a 10:15 ETA can be honoured exactly; rounding down would finish work not yet done</td></tr>
+    <tr><td>Changeover</td><td>30 minutes between ships at one berth</td><td>the brief implies preparation but names no figure — the number is mine</td></tr>
+    <tr><td>Buffer clearance</td><td>trucks drain 30 containers/hour per zone</td><td>without it, 630 containers cannot pass through 600 units of buffer</td></tr>
+    <tr><td>Idle resets the clock</td><td>a gap of 30 minutes or more counts as a break</td><td>the one assumption that makes C2's 2½ h + 30-min gap + 3 h legal</td></tr>
+    <tr><td>Overtime</td><td>only unloading past 16:00 counts — breaks and charges are free</td><td>so f₆ measures the last <em>container</em>, not the last crane activity</td></tr>
+    <tr><td>Energy tariff</td><td>diesel RM 120 / running hour; electric RM 45 / running hour, RM 30 / charging hour</td><td>the brief says “energy cost” but names no rate — so I state one</td></tr>
+  </table></div>
+
+  <h3>The chromosome</h3>
+  <p>One candidate solution is a <b>heterogeneous</b> string of <b>17 genes in two segments</b>. Segment A holds four integers, one per ship, giving its section, with the alphabet restricted per ship: <b>SH1 ∈ {1,2,3}, SH2 ∈ {2,3}</b> (too long for A), <b>SH3 ∈ {1,3}</b> (hazardous, B uncertified), <b>SH4 ∈ {1,2,3}</b>, where 1 = A, 2 = B, 3 = C. Segment B is a permutation of the thirteen unloading jobs — T1–T3 are SH1's, T4–T7 SH2's, T8–T9 SH3's, T10–T13 SH4's, fifty containers each and thirty in the last, 630 exactly. Cutting ships into jobs is what lets two cranes share one large ship.</p>
+  <p>Legal, and what it means: <span class="genes"><span class="lbl">SH1</span><span class="g">1</span><span class="lbl">SH2</span><span class="g">2</span><span class="lbl">SH3</span><span class="g">3</span><span class="lbl">SH4</span><span class="g">1</span><span class="g sep">‖</span></span> <span class="mono">T2 T5 T1 T9 T13 T4 T7 T3 T11 T6 T12 T8 T10</span> — “1 2 3 1 means SH1 berths in A, SH2 in B, SH3 in C, SH4 returns to A once SH1 has left; the jobs are considered in that order, each placed at the earliest moment the rules allow, so position is priority, not start time.”</p>
+  <p>The same drawing with one illegal gene: <span class="genes"><span class="lbl">SH2</span><span class="g bad">1</span></span> — <b>invalid: SH2 is too long for section A, and 1 is outside SH2's alphabet</b>. Restricting the alphabet is deliberate: an incompatible berthing is unwritable, so compatibility never needs repairing.</p>
+  <p class="mk">representation — length, gene types, legal values, worked example, compatibility in the alphabet (4)</p>
+
+  <h3>Decoding — phase 1, the berth plan</h3>
+  <p>Read segment A; group the ships by section; order each group by <b>ETA, ties broken by priority</b>; lay the windows along the quay: each ship starts at max(its own ETA, the previous ship's departure + 30 minutes). Here A takes SH1 from 08:00 then SH4 from 11:00; B takes SH2 from 09:30; C takes SH3 at 10:15 — not a minute before it arrives. <em>Berth occupancy, changeover and ETA are enforced in this phase, by construction.</em></p>
+
+  <h3>Decoding — phase 2, the crane schedule</h3>
+  <p>Walk segment B in order and give each job the <b>fastest crane that is free, legal for that section and not due a rest</b>, computing end = start + containers ÷ rate, rounded up to the next 15-minute step. Insert a 30-minute break after three hours of continuous work, and a one-hour charge once an electric crane reaches four hours of work. Each placement updates that zone's buffer level — rising by what the crane unloads, falling by the 30/hour drain — and records its peak, so capacity is checked <b>slot by slot, as a level, not a total</b>. The order is forced, not chosen: crane availability depends on where and when ships are berthed, which is why the berth plan must exist first.</p>
+  <p>Decoded, this chromosome puts <b>C2 on SH1 (08:00–10:30, 150 ÷ 60 = 2½ h) and then on SH4 (11:00–14:00, 180 ÷ 60 = 3 h)</b>, <b>C1 on SH2 (200 ÷ 50 = 4 h of work: 09:30–12:30, a 30-minute break, then 13:00–14:00)</b>, <b>C3 on SH3 (10:15–12:30, 100 ÷ 45 ≈ 2 h 13 min → 2¼ h)</b>: quay clear at 14:00, no ship waiting, C1 charging 14:00–15:00 on its four hours of work.</p>
+  <p class="mk">decoding in two phases, each step pinned to the constraint it enforces (4)</p>
+
+  <h3>How the operators apply</h3>
+  <p>Segment A takes uniform crossover and a mutation that resets a gene to another value from its own legal set — children stay compatible by construction. Segment B takes order crossover (OX) and swap mutation, which preserve a permutation — one-point crossover here would duplicate and lose jobs. Tournament selection with k = 3, two elites, crossover probability 0.9, mutation about 1/17 per gene.</p>
+
+  <h3>Data required</h3>
+  <ul>
+    <li><b>Per shift</b> — each ship's ETA, container count, priority class, compatible sections.</li>
+    <li><b>Fixed reference data</b> — section lengths and certifications, buffer capacities (A 200, B 250, C 150), crane rates and power types, break and charge rules, shift bounds 08:00–16:00, the 15-minute step, the 30-minute changeover, the 30/hour clearance rate.</li>
+    <li><b>Live data</b> — current buffer occupancy per zone, since trucks drain the yard while cranes fill it.</li>
+    <li><b>Cost and policy data</b> — the ship × section handling-cost matrix, the energy tariff, the overtime rate, the 5/3/1 priority weights.</li>
+  </ul>
+  <p class="mk">data requirements, grouped — per-shift / fixed / live / cost (2)</p>
+
+  <h3>Why this design and not another</h3>
+  <p>I considered a grouping encoding — each section a block listing its ships in service order — and rejected it because it works at ship level, where one ship gets one crane start to finish, and SH2's two hundred containers are exactly the case where I want two cranes sharing the work. Encoding the section <em>per job</em> would be the trap to avoid — a ship docks once, so thirteen section genes would do four genes' work and widen the search for nothing. I also rejected a section × time-slot grid: it draws the timetable beautifully, but being indexed by section and time it has nowhere to put a crane's break or charge. The search space is 36 legal section assignments × 13! job orders — roughly <b>224 billion</b> schedules, no gradient — which is why a population search, not enumeration.</p>
+  <p class="mk">justification against two named alternatives + the search-space line (2)</p>
+</div>
+
+<div class="paper">
+  <p class="hw-head">Q2 — fitness and validity <span class="marks">15</span></p>
+  <h3>Sort the rules first — nine hard, nine soft</h3>
+  <p><b>Hard</b> — a plan that breaks one is not a schedule: ship–section compatibility (SH2 never A, SH3 never B) · berth occupancy — one ship per section at a time · 30-minute changeover at a berth · no start before ETA · one crane per section per slot · 30-minute break after three hours of crane work · one-hour charge after four hours for electric cranes · every zone inside its own capacity at every slot · all 630 containers unloaded.</p>
+  <p><b>Soft</b> — breaking one only makes the plan worse: low waiting · priorities early · cranes busy · low energy cost · finish before 16:00 · stay below buffer capacity · low handling cost · balanced yards · early quay clearance.</p>
+  <p>One quantity sits in both columns, and I should be the one to point at it: <b>buffer capacity is hard check 8 and soft f₄.</b> Not double counting — the hard check settles legality; f₄, Σ over zones and slots of max(0, occupancy − capacity) in container-hours, measures <em>how badly</em> a plan overflows, so the search feels a slope instead of a cliff. It is also why this one rule is handled by <b>penalty</b> rather than repair: a yard overflow cannot be edited out without wrecking the timetable, whereas compatibility goes in the encoding and occupancy, changeover and crane rests go in the decoder.</p>
+  <p class="mk">the hard/soft split done visibly, and the dual-entry clause pre-empting the apparent duplicate (3)</p>
+
+  <h3>Validity — nine checkable tests, each with a pass example</h3>
+  <p><b>① Compatibility</b> — every ship in an allowed section (SH3 not in B ✓). <b>② Berth occupancy</b> — ≤ 1 ship per section per slot (A holds SH1 until 10:30, SH4 only from 11:00 ✓). <b>③ Changeover</b> — ≥ 30 min between ships at one berth (out 10:30, in 11:00 ✓). <b>④ ETA</b> — no start before arrival (SH3 not before 10:15 ✓). <b>⑤ Section exclusivity</b> — ≤ 1 crane active per section per slot (A carries only C2 all morning ✓). <b>⑥ Continuous-work limit</b> — no run over 3 h without a 30-min break (C1 works 09:30–12:30 then breaks ✓; C2's 2½ h + 30-min gap + 3 h is legal only because idle resets the counter). <b>⑦ Charging</b> — electric cranes charge once 4 h of work is reached (C1 charges 14:00–15:00 ✓). <b>⑧ Buffer</b> — every zone and slot ≤ its own capacity (A peaks at <b>150</b> against 200, B at <b>65</b> against 250, C at <b>33</b> against 150 ✓). <b>⑨ Completeness</b> — every container unloaded (150 + 200 + 100 + 180 = 630 ✓).</p>
+  <p><b>Trace every check back to a decision — that link is the mark.</b> Checks ① ② ③ exist only because I chose the section; his deck: “If your answer omits them, your validity test is incomplete.” The law runs both ways: f₇ and f₈ only exist as components because the section is a gene — a constant cannot be optimised — and two whole data groups (compatibility, the cost matrix) exist only because the section became a decision. One decision: three new checks, two new components, two new data groups.</p>
+  <p class="mk">nine checkable tests with pass examples, traced to the decision that created them (3)</p>
+
+  <h3>Constraint → tool table</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Constraint</th><th>Tool</th><th>How</th></tr>
+    <tr><td>Ship–section compatibility</td><td>Encoding</td><td>gene alphabet restricted {2,3} / {1,3} — unwritable</td></tr>
+    <tr><td>Berth occupancy</td><td>Decoder</td><td>sequential layout per section — overlap never arises</td></tr>
+    <tr><td>Changeover 30 min</td><td>Decoder</td><td>auto-inserted between consecutive ships</td></tr>
+    <tr><td>ETA release</td><td>Decoder</td><td>start = max(ETA, previous departure + 30)</td></tr>
+    <tr><td>Crane breaks / charging</td><td>Decoder</td><td>inserted while building phase 2</td></tr>
+    <tr><td>Buffer capacity</td><td>Penalty</td><td>f₄ = Σ max(0, occupancy − cap) × weight — degree matters</td></tr>
+  </table></div>
+  <p>I name the cost of the one real choice: <b>repair is wrong here</b> because an overflow cannot be edited out without wrecking the timetable, and rejection wastes evaluations — so the buffer is the single penalty-handled rule, priced by degree.</p>
+
+  <h3>The fitness — nine components, formula + unit + one worked number</h3>
+  <p><b>f₁ waiting</b> = Σ (berth start − ETA) in minutes; <b>f₂ priority-weighted waiting</b> = Σ w · waiting, w = 5 emergency / 3 high / 1 normal. Worked: <b>0</b> for both — no ship waits. They overlap by design, and I say so: f₂ carries the information f₁ cannot — <em>whose</em> waiting it is — so an hour of delay to SH3 costs five times an hour to SH4.</p>
+  <p><b>f₃ crane idleness</b> = 1 − utilisation, a fraction. Utilisation is a maximise quantity, so I add (1 − U) to keep every term a cost. Worked: 11.75 crane-hours of work (C2 5½, C1 4, C3 2¼) over 3 × 8 = 24 available → f₃ = 1 − 0.49 = <b>0.51</b>.</p>
+  <p><b>f₄ buffer pressure</b> = Σ over zones and slots of max(0, occupancy − capacity), in container-hours. Worked: <b>0</b> — peaks 150 / 65 / 33 all stay under their caps.</p>
+  <p><b>f₅ energy</b> = Σ running hours × rate + charging hours × rate, in RM. Worked: 5½ × 120 + 4 × 45 + 2¼ × 45 + 1 × 30 = 660 + 180 + 101.25 + 30 = <b>RM 971.25</b>.</p>
+  <p><b>f₆ overtime</b> = Σ max(0, last <em>unloading finish</em> − 16:00), in minutes — measured on the last container moved, not the last crane activity, so C1's 14:00–15:00 charge costs nothing. Worked: <b>0</b>.</p>
+  <p><b>f₇ berth handling cost</b> = Σ matrix[ship, section], in RM. Worked: SH1→A 40 + SH2→B 50 + SH3→C 90 + SH4→A 70 = <b>RM 250</b>.</p>
+  <p><b>f₈ yard balance</b> = standard deviation of peak zone occupancy, in containers. Worked: peaks 150 / 65 / 33 → mean 82.7 → σ ≈ <b>49</b> — one zone is carrying the yard while two sit half-empty.</p>
+  <p><b>f₉ makespan</b> = when the quay is clear, in minutes from 08:00. Worked: <b>360</b>. The component most answers drop — and the drop is expensive: without it the fitness can prefer a plan that drags the shift to 16:00 over one that finishes at 14:00.</p>
+  <p class="mk">nine components, each with formula, unit and a number worked on the decoded timetable (4)</p>
+
+  <h3>Directions, units, normalise — then weights</h3>
+  <p>Minutes, ringgit, fractions and containers are different units, so each component is normalised to [0,1] against its own justified range before weighting: f₁ 0→1,920 (4 ships × the 480-min shift) · f₂ 0→4,800 (10 weight-units × 480) · f₃ 0→1 · f₄ 0→500 · f₅ 500→2,000 · f₆ 0→240 · f₇ 195→330 (the matrix's own legal spread) · f₈ 0→100 · f₉ 240→600 — whose floor is not zero: the quay cannot clear before the fastest possible finish. Weights sum to 1: <b>waiting 0.25 · priority 0.15 · idleness 0.05 · buffer 0.10 · energy 0.10 · overtime 0.05 · handling 0.10 · balance 0.10 · makespan 0.10</b>. Hierarchy sentence: <b>I weighted waiting above handling cost, because a berthed ship blocks the quay and the port is paid for turnaround — RM 30 of savings is not worth an hour of congestion.</b></p>
+  <p>Assembled: F = 0.05·0.51 + 0.10·0.314 + 0.10·0.407 + 0.10·0.49 + 0.10·0.333 = 0.0255 + 0.0314 + 0.0407 + 0.049 + 0.0333 ≈ <b>0.18</b>, lower is better.</p>
+  <p class="mk">normalisation before aggregation + weights stated and defended (2)</p>
+
+  <h3>Critical awareness</h3>
+  <p>Read the cost matrix greedily and both SH1 (RM 40) and SH3 (RM 60) are cheapest in section A — exactly the congestion trap. Not because 150 + 100 = 250 “will not fit” a 200-unit buffer — it fits, because the zone drains while it fills and A's peak level stays in the low 90s — but because <b>a section holds one ship at a time</b>: SH1 occupies A until 10:30, the changeover runs to 11:00, and SH3, arrived at 10:15, sits off the quay. So f₇ pulls ships toward A while f₁ and f₄ push them away, and <b>the weights are what settle that argument</b> — they are policy, not mathematics. And if a plan that feels wrong ever scores well, the missing-component test applies: a fitness blind to makespan will keep passing plans that drag the shift to 16:00.</p>
+  <p class="mk">the matrix tension named, weights called policy, the missing-component story (3)</p>
+</div>
+
+<div class="paper">
+  <p class="hw-head">Q3 — the alternative algorithm: ACO <span class="marks">10</span></p>
+  <h3>Part A — differences, GA vs ACO</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Aspect</th><th>GA (Q1)</th><th>ACO</th></tr>
+    <tr><td>Representation</td><td>fixed-length chromosome (17 genes)</td><td>no chromosome — solutions built step by step</td></tr>
+    <tr><td>Solution creation</td><td>random init + crossover + mutation</td><td>ants construct along a graph, guided by pheromone</td></tr>
+    <tr><td>Constraint handling</td><td>alphabet + decoder + one penalty after building</td><td>invalid options filtered <em>during</em> construction</td></tr>
+    <tr><td>Diversity control</td><td>crossover &amp; mutation rates</td><td>pheromone evaporation rate</td></tr>
+    <tr><td>Memory of past search</td><td>the population itself</td><td>the pheromone matrix</td></tr>
+    <tr><td>Elitism</td><td>best chromosomes copied over</td><td>best ants deposit extra pheromone</td></tr>
+    <tr><td>Escaping local optima</td><td>mutation; risk without diversity</td><td>evaporation forgets stale trails</td></tr>
+  </table></div>
+  <p class="mk">a sensible named algorithm + the GA/ACO contrast written out</p>
+
+  <h3>Part B — how ACO would be applied here</h3>
+  <p><b>Nodes come from the scenario.</b> Each of the four ships is a stage, visited in a fixed construction order — ETA order, ties broken by priority, exactly the order my GA's decoder already uses. The construction order is itself a choice, so I state it.</p>
+  <p><b>Options at each node.</b> The legal sections for that ship — the same alphabets my Q1 genes had: SH2 is only ever offered B or C, SH3 only A or C.</p>
+  <p><b>Filtering as the ant moves.</b> Before the ant chooses, every option that would break a hard rule is removed: a section whose buffer would overflow is never offered — the same slot-by-slot occupancy simulation my decoder runs, now applied <em>during</em> construction instead of after. That one sentence is the entire ACO-vs-GA argument.</p>
+  <p><b>Choice and pheromone.</b> P(section) ∝ τ(ship, section)<sup>α</sup> × η<sup>β</sup>, with η = priority weight / handling cost, so cheap berths smell better to important ships. After each iteration trails evaporate (× 0.7) and the best ants deposit extra. I would set <b>40 ants, α = 1, β = 2, ρ = 0.7</b>.</p>
+  <p><b>What carries over.</b> Once an ant has berthed all four ships, the crane schedule is built by the <em>same</em> phase-2 decoder from Q1 — permutation order replaced by the construction order — and my Q2 fitness F scores the finished timetable <em>unchanged</em>: the nine components, the normalisation and the weights all carry over; the only new job is that F now drives pheromone deposits as well as selection. PSO with random keys — 8 real keys, banded per ship's legal sections — is the other defensible choice and would reuse the same decoder; ACO is the one I can apply node by node, which is why I picked it.</p>
+  <p class="mk">encoding differences + evaluation strategy + implementation with numbers</p>
+
+  <h3>Judgement</h3>
+  <p>Compared with the GA, ACO produces far fewer invalid plans — the filters make legality free, and the buffer penalty should rarely fire at all — but it needs a pheromone structure (4 ships × 3 sections, plus evaporation and deposit bookkeeping) and three extra parameters to tune. For this port the GA's restricted alphabet already achieves most of the same effect with a simpler machine, so I would keep the GA as the primary design — and prefer ACO if the compatibility and buffer rules multiplied, since the filters absorb them for free.</p>
+  <p class="mk">one-sentence comparative judgement</p>
+</div>
+
+
+  </div>
+
+  <div class="next"><button class="btn ghost" data-goto="write">← How to Write Answers</button><button class="btn" data-goto="fullq1">The full Q1, in slow motion →</button></div>
 </section>
 
 <!-- ============================ FULL-LENGTH ANSWER ============================ -->
@@ -3080,7 +3540,7 @@ const cssVar=n=>getComputedStyle(document.documentElement).getPropertyValue(n).t
 })();
 
 /* ---------- navigation & progress ---------- */
-const TRACKED=["exam","l1","l2","l3","l4","l5","l6","l7","l8","l9","l10","l11","l12","write","walk","papers","mock"];
+const TRACKED=["exam","l1","l2","l3","l4","l5","l6","l7","l8","l9","l10","l11","l12","write","hand","walk","papers","mock"];
 let visits=new Set(store.get("visits",[]));
 function paintProgress(){
   const done=TRACKED.filter(t=>visits.has(t)).length;
