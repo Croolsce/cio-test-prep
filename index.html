@@ -221,6 +221,13 @@ hr{border:none;border-top:1px solid var(--line);margin:40px 0}
 .paper .mk::before{content:'✎ ';font-weight:700}
 @media (max-width:640px){.paper{padding:14px 16px 20px 42px}.paper::before{left:28px}}
 
+/* ---- handwritten answer view toggles ---- */
+.hw-toggles{display:flex;gap:8px;margin:14px 0 6px;flex-wrap:wrap;align-items:center}
+.hw-toggles .btn.active{background:var(--accent-soft);color:var(--accent-ink);border-color:var(--accent-line)}
+.paper.plain{--pen:#2F4870;--pen-soft:#8195B5;background:#FFFFFF}
+.paper.plain::before{display:none}
+.paper.normal-font{font-family:var(--sans)}
+
 /* ============ surfaces ============ */
 .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);padding:20px 24px;margin:20px 0}
 .card>*:first-child{margin-top:0}
@@ -2239,6 +2246,7 @@ try{var _t=JSON.parse(localStorage.getItem("cio_theme"));if(_t==="dark"||_t==="l
   <div class="sec">
   <h2>Script 1 — Hospital ward roster (the unseen scenario)</h2>
   <p>This is the drill scenario from the How-to-Write page, invented from nothing — proof that the recipes survive contact with nouns nobody has taught you. If tomorrow's paper is in the <b>allocate-things-to-slots-under-rules</b> family his whiteboard hinted at, this is the closest rehearsal on the site.</p>
+  <div class="hw-toggles" role="group" aria-label="View options for this script"><button class="btn small ghost" data-hwtoggle="plain" data-hwgroup="ward" aria-pressed="false">▦ Plain paper</button><button class="btn small ghost" data-hwtoggle="normalfont" data-hwgroup="ward" aria-pressed="false">Aa Normal font</button></div>
 <div class="hw-scenario">
   <p><b>St. Anne's General Hospital — 7-day admission plan + nurse roster.</b> Three wards: <b>W1 General (8 beds)</b>, <b>W2 Isolation wing (2 beds)</b>, <b>W3 High-Dependency Unit (4 beds)</b> — W3 keeps its own dedicated staff, rostered outside this problem. Six patients await admission; each has a <b>type</b> (emergency / urgent / elective), a <b>special need</b> (none / isolation / HDU), a <b>length of stay (LOS)</b> in 8-hour shifts, and <b>days already waited</b>:</p>
   <div class="tablewrap"><table>
@@ -2375,6 +2383,7 @@ try{var _t=JSON.parse(localStorage.getItem("cio_theme"));if(_t==="dark"||_t==="l
   <div class="sec">
   <h2>Script 2 — Exam timetabling (the real March 2026 paper)</h2>
   <p>The scenario the March 2026 cohort actually sat, answered here with the same structure the professor's circulated sample used — the 5-gene block, ceil(Slot/2) decoding, the 1000×HC fitness — compressed to what a hand can produce in two hours.</p>
+  <div class="hw-toggles" role="group" aria-label="View options for this script"><button class="btn small ghost" data-hwtoggle="plain" data-hwgroup="timetabling" aria-pressed="false">▦ Plain paper</button><button class="btn small ghost" data-hwtoggle="normalfont" data-hwgroup="timetabling" aria-pressed="false">Aa Normal font</button></div>
 <div class="hw-scenario">
   <p><b>APU examination timetabling — the real March 2026 paper.</b> The examinations office must timetable <b>40 exams</b> over <b>10 weekdays × 2 sessions</b> (09:00–12:00 and 14:00–17:00) — <b>20 session-slots</b> — across <b>3 campus locations</b>. There are <b>12 halls</b> (4 per location) with capacities from <b>50 to 300</b>, and <b>20 invigilators</b>: <b>6 senior</b> and <b>14 standard</b>, who may be asked to travel between locations.</p>
   <p>Each exam has: a <b>duration</b> (1–3 hours), a <b>student count</b>, its <b>programme</b>, a <b>priority</b> (high or normal — roughly 30% are high), for some exams a <b>permitted day-window</b> (e.g. “days 2–4 only”), and <b>student-overlap sets</b> — which other exams share its students.</p>
@@ -2508,6 +2517,7 @@ try{var _t=JSON.parse(localStorage.getItem("cio_theme"));if(_t==="dark"||_t==="l
   <div class="sec">
   <h2>Script 3 — The port (the site's spine)</h2>
   <p>The scenario every lesson on this site uses. The full Q1 page walks this answer in slow motion; here it is at exam speed, with the Q2 and Q3 scripts the walkthrough doesn't show.</p>
+  <div class="hw-toggles" role="group" aria-label="View options for this script"><button class="btn small ghost" data-hwtoggle="plain" data-hwgroup="port" aria-pressed="false">▦ Plain paper</button><button class="btn small ghost" data-hwtoggle="normalfont" data-hwgroup="port" aria-pressed="false">Aa Normal font</button></div>
 <div class="hw-scenario">
   <p><b>A container port — berth, crane and buffer scheduling (the professor's own mock, condensed).</b> Three quay sections — <b>A</b> (standard berth, hazmat-certified, reefer power, buffer 200), <b>B</b> (long berth, no hazmat, no reefer, buffer 250), <b>C</b> (long berth, hazmat-certified, no reefer, buffer 150). Three cranes: <b>C1 50 containers/hour (electric)</b>, <b>C2 60/hour (diesel)</b>, <b>C3 45/hour (electric)</b>. Four ships arrive in the <b>08:00–16:00 shift</b> (480 minutes):</p>
   <div class="tablewrap"><table>
@@ -4126,6 +4136,29 @@ const KS_CAP=400;
 paintProgress();
 const bootId=location.hash.slice(1);
 showPage(validPage(bootId)?bootId:"home");
+
+/* ---------- handwritten script view toggles (plain paper / normal font) ---------- */
+(function(){
+  const clsFor = t => t === "plain" ? "plain" : "normal-font";
+  const apply = (b, on) => {
+    const sec = b.closest(".sec"); if (!sec) return;
+    sec.querySelectorAll(".paper").forEach(p => p.classList.toggle(clsFor(b.dataset.hwtoggle), on));
+    b.classList.toggle("active", on);
+    b.setAttribute("aria-pressed", on ? "true" : "false");
+  };
+  const prefs = store.get("hwprefs", {});
+  $$("[data-hwtoggle]").forEach(b => {
+    const key = b.dataset.hwgroup + "." + b.dataset.hwtoggle;
+    if (prefs[key]) apply(b, true);
+    b.addEventListener("click", () => {
+      const on = !b.classList.contains("active");
+      apply(b, on);
+      const p = store.get("hwprefs", {});
+      p[key] = on;
+      store.set("hwprefs", p);
+    });
+  });
+})();
 </script>
 
 </body>
